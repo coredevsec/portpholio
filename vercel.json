@@ -1,9 +1,9 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist/client",
-  "functions": {
+  "serverlessFunctions": {
     "dist/server/**/*.js": {
-      "runtime": "nodejs20.x"
+      "runtime": "nodejs20"
     }
   }
 }
