@@ -2,7 +2,7 @@
 
 An interactive portfolio website for Korede Ogundana, featuring a responsive layout, CSS 3D interactions, project showcases, certificate pages, theme switching, and an EmailJS contact form.
 
-Live website: <https://koredev.vercel.app>
+Live website: <https://koredev.up.railway.app/>
 
 ## Features
 
