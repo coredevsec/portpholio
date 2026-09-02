@@ -76,7 +76,7 @@ export const projects: Project[] = [
     name: "TryHackMe security labs",
     year: "2025",
     blurb:
-      "Ongoing practical cybersecurity training through the Careers in Cyber and defensive security paths — Linux, networking and threat analysis fundamentals.",
+      "Ongoing practical cybersecurity training through the Careers in Cyber and defensive security paths · Linux, networking and threat analysis fundamentals.",
     tags: ["Linux", "Networking", "Blue team"],
     url: "https://tryhackme.com",
     urlLabel: "View TryHackMe",
