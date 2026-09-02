@@ -302,7 +302,7 @@ function Portfolio() {
                 >
                   <p className="font-display text-xl text-muted-foreground">Project slot open</p>
                   <p className="max-w-sm text-sm text-muted-foreground">
-                    Space reserved for a new project — add its title, image or video and links when
+                    Space reserved for a new project · add its title, image or video and links when
                     it is ready.
                   </p>
                 </div>
@@ -509,7 +509,7 @@ function Portfolio() {
           <Section id="message" label="Message me" title="Send me an email">
             <Tilt3D className="rounded-lg border border-border bg-card p-4 md:p-6" intensity={3}>
               <p className="layer-3d mb-6 max-w-xl text-muted-foreground">
-                Fill in the form and your message reaches me directly — no third-party inbox in
+                Fill in the form and your message reaches me directly · no third party inbox in
                 between.
               </p>
               <ContactForm />
