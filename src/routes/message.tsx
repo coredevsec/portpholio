@@ -11,12 +11,12 @@ export const Route = createFileRoute("/message")({
       { title: `Message ${profile.name}` },
       {
         name: "description",
-        content: `Send a secure message to ${profile.name} · no third-party inbox required.`,
+        content: `Send a secure message to ${profile.name} · no third party inbox required.`,
       },
       { property: "og:title", content: `Message ${profile.name}` },
       {
         property: "og:description",
-        content: `Send a secure message to ${profile.name} · no third-party inbox required.`,
+        content: `Send a secure message to ${profile.name} · no third party inbox required.`,
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
