@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as LogoRouteImport } from './routes/logo'
 import { Route as MessageRouteImport } from './routes/message'
 import { Route as CertificatesCertificateIdRouteImport } from './routes/certificates.$certificateId'
+import { Route as ProjectsProjectIdRouteImport } from './routes/projects.$projectId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -35,18 +36,25 @@ const CertificatesCertificateIdRoute =
     path: '/certificates/$certificateId',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ProjectsProjectIdRoute = ProjectsProjectIdRouteImport.update({
+  id: '/projects/$projectId',
+  path: '/projects/$projectId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/logo': typeof LogoRoute
   '/message': typeof MessageRoute
   '/certificates/$certificateId': typeof CertificatesCertificateIdRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/logo': typeof LogoRoute
   '/message': typeof MessageRoute
   '/certificates/$certificateId': typeof CertificatesCertificateIdRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -54,13 +62,30 @@ export interface FileRoutesById {
   '/logo': typeof LogoRoute
   '/message': typeof MessageRoute
   '/certificates/$certificateId': typeof CertificatesCertificateIdRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/logo' | '/message' | '/certificates/$certificateId'
+  fullPaths:
+    | '/'
+    | '/logo'
+    | '/message'
+    | '/certificates/$certificateId'
+    | '/projects/$projectId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/logo' | '/message' | '/certificates/$certificateId'
-  id: '__root__' | '/' | '/logo' | '/message' | '/certificates/$certificateId'
+  to:
+    | '/'
+    | '/logo'
+    | '/message'
+    | '/certificates/$certificateId'
+    | '/projects/$projectId'
+  id:
+    | '__root__'
+    | '/'
+    | '/logo'
+    | '/message'
+    | '/certificates/$certificateId'
+    | '/projects/$projectId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -68,6 +93,7 @@ export interface RootRouteChildren {
   LogoRoute: typeof LogoRoute
   MessageRoute: typeof MessageRoute
   CertificatesCertificateIdRoute: typeof CertificatesCertificateIdRoute
+  ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -100,6 +126,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CertificatesCertificateIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/$projectId': {
+      id: '/projects/$projectId'
+      path: '/projects/$projectId'
+      fullPath: '/projects/$projectId'
+      preLoaderRoute: typeof ProjectsProjectIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -108,6 +141,7 @@ const rootRouteChildren: RootRouteChildren = {
   LogoRoute: LogoRoute,
   MessageRoute: MessageRoute,
   CertificatesCertificateIdRoute: CertificatesCertificateIdRoute,
+  ProjectsProjectIdRoute: ProjectsProjectIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -19,8 +19,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 import {
@@ -85,7 +83,7 @@ function DocButton({
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: `${profile.name} — 3D Portfolio` },
+      { title: `${profile.name} 3D Portfolio` },
       {
         name: "description",
         content: `Interactive 3D portfolio of ${profile.name}: projects with image and video showcases, experience, skills, education and certifications.`,
@@ -237,78 +235,29 @@ function Portfolio() {
 
           <Section id="work" label="Selected work" title="Projects">
             <div className="mb-10">
-              <Carousel opts={{ loop: true }} className="mx-auto max-w-3xl">
+              <Carousel opts={{ loop: true }} autoPlayMs={4500} className="mx-auto max-w-3xl">
                 <CarouselContent>
                   {projects.map((project) => (
                     <CarouselItem key={`featured-${project.name}`}>
-                      <div className="rounded-lg border border-border bg-card p-4 md:p-6">
+                      <Link
+                        to="/projects/$projectId"
+                        params={{ projectId: project.slug }}
+                        className="block rounded-lg border border-border bg-card p-4 transition-colors hover:border-accent md:p-6"
+                      >
                         <MediaFrame media={project.media} label={project.name} />
                         <div className="mt-5 flex flex-wrap items-baseline justify-between gap-3">
                           <h3 className="font-display text-2xl">{project.name}</h3>
                           <span className="text-sm text-muted-foreground">{project.year}</span>
                         </div>
-                      </div>
+                        <span className="mt-4 inline-block border-b border-accent pb-0.5 text-sm text-accent">
+                          View project details
+                        </span>
+                      </Link>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="left-2 bg-background/90 md:-left-12" />
-                <CarouselNext className="right-2 bg-background/90 md:-right-12" />
               </Carousel>
             </div>
-            <div className="space-y-10">
-              {projects.map((project) => (
-                <Tilt3D
-                  key={project.name}
-                  className="rounded-lg border border-border bg-card p-5 md:p-7"
-                  intensity={5}
-                >
-                  <MediaFrame media={project.media} label={project.name} />
-                  <div className="layer-3d mt-6">
-                    <div className="flex flex-wrap items-baseline justify-between gap-3">
-                      <h3 className="font-display text-2xl">{project.name}</h3>
-                      <span className="text-sm text-muted-foreground">{project.year}</span>
-                    </div>
-                    <p className="mt-2 max-w-2xl text-muted-foreground">{project.blurb}</p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {project.tags.map((tag, i) => (
-                        <span
-                          key={`${tag}-${i}`}
-                          className="rounded-sm bg-secondary px-2 py-1 text-xs text-secondary-foreground"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    {project.url ? (
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="mt-5 inline-block border-b border-accent pb-0.5 text-sm text-accent transition-opacity hover:opacity-70"
-                      >
-                        {project.urlLabel ?? `Visit ${project.name}`}
-                        <span className="sr-only"> (opens in a new tab)</span>
-                      </a>
-                    ) : null}
-                  </div>
-                </Tilt3D>
-              ))}
-
-              {/* Reserved space for upcoming projects */}
-              {[0, 1].map((slot) => (
-                <div
-                  key={`slot-${slot}`}
-                  className="flex min-h-56 flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-border bg-card/40 p-8 text-center"
-                >
-                  <p className="font-display text-xl text-muted-foreground">Project slot open</p>
-                  <p className="max-w-sm text-sm text-muted-foreground">
-                    Space reserved for a new project — add its title, image or video and links when
-                    it is ready.
-                  </p>
-                </div>
-              ))}
-            </div>
-
           </Section>
 
           <Section id="experience" label="Experience" title="Where I have worked">
@@ -507,7 +456,10 @@ function Portfolio() {
           </Section>
 
           <Section id="message" label="Message me" title="Send me an email">
-            <Tilt3D className="rounded-lg border border-border bg-card p-4 md:p-6" intensity={3}>
+            <Tilt3D
+              className="w-full max-w-xl rounded-lg border border-border bg-card p-4 md:p-6"
+              intensity={3}
+            >
               <p className="layer-3d mb-6 max-w-xl text-muted-foreground">
                 Fill in the form and your message reaches me directly — no third-party inbox in
                 between.

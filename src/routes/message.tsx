@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Send } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowLeft, ArrowUp } from "lucide-react";
 
 import { ContactForm } from "@/components/ContactForm";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -26,6 +27,15 @@ export const Route = createFileRoute("/message")({
 });
 
 function MessagePage() {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const updateVisibility = () => setShowBackToTop(window.scrollY > 240);
+    updateVisibility();
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+    return () => window.removeEventListener("scroll", updateVisibility);
+  }, []);
+
   return (
     <div className="min-h-screen">
       <a
@@ -48,7 +58,7 @@ function MessagePage() {
         </header>
 
         <main id="main" className="py-12 md:py-20">
-          <div className="rounded-lg border border-border bg-card p-4 md:p-6">
+          <div className="w-full max-w-xl rounded-lg border border-border bg-card p-4 md:p-6">
             <p className="eyebrow">Message me</p>
             <h1 className="font-display mt-3 text-3xl md:text-4xl">Send a message</h1>
             <p className="mt-4 max-w-xl text-muted-foreground">
@@ -60,6 +70,18 @@ function MessagePage() {
             </div>
           </div>
         </main>
+
+        {showBackToTop ? (
+          <button
+            type="button"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="fixed bottom-6 right-5 z-40 inline-flex size-10 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-md transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:bottom-8 md:right-8"
+          >
+            <ArrowUp size={18} aria-hidden="true" />
+          </button>
+        ) : null}
 
         <footer className="border-t border-border py-10 text-sm text-muted-foreground">
           © {new Date().getFullYear()} {profile.name}

@@ -50,8 +50,14 @@ import mlCover from "@/assets/project-ml.jpg";
 
 export type Project = {
   name: string;
+  slug: string;
   year: string;
   blurb: string;
+  details: {
+    overview: string;
+    approach: string[];
+    focus: string;
+  };
   tags: string[];
   url?: string;
   /** Label for the external link, used as accessible text. */
@@ -62,9 +68,20 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: "KYC verification workflow",
+    slug: "kyc-verification-workflow",
     year: "2024 — 2026",
     blurb:
       "Hands-on identity verification at volume: document checks, fraud flags and consistent decision records for a remote validator team.",
+    details: {
+      overview:
+        "A practical operations project focused on making identity review consistent, careful and traceable across a distributed validation team.",
+      approach: [
+        "Compared identity documents against verification requirements and checked submissions for mismatches.",
+        "Flagged suspicious patterns for escalation instead of forcing uncertain decisions.",
+        "Kept decision records consistent while handling sensitive personal information responsibly.",
+      ],
+      focus: "Identity verification, data integrity and responsible handling of sensitive information.",
+    },
     tags: ["KYC", "Cybersecurity", "Data integrity"],
     media: {
       image: kycCover,
@@ -74,9 +91,20 @@ export const projects: Project[] = [
   },
   {
     name: "TryHackMe security labs",
+    slug: "tryhackme-security-labs",
     year: "2025",
     blurb:
       "Ongoing practical cybersecurity training through the Careers in Cyber and defensive security paths — Linux, networking and threat analysis fundamentals.",
+    details: {
+      overview:
+        "A hands-on learning track built around practical security labs, with an emphasis on understanding systems by investigating them directly.",
+      approach: [
+        "Practiced Linux command-line workflows and basic system investigation.",
+        "Worked through networking concepts and defensive security scenarios.",
+        "Used lab exercises to connect threat analysis concepts with observable system behavior.",
+      ],
+      focus: "Linux, networking fundamentals, blue-team thinking and threat analysis.",
+    },
     tags: ["Linux", "Networking", "Blue team"],
     url: "https://tryhackme.com",
     urlLabel: "View TryHackMe",
@@ -88,9 +116,20 @@ export const projects: Project[] = [
   },
   {
     name: "Generative AI & machine learning foundations",
+    slug: "generative-ai-machine-learning-foundations",
     year: "2025",
     blurb:
       "Coursework and labs from Udacity's Introducing Generative AI with AWS and AWS Educate Machine Learning Foundations, covering ML workflows and AWS services.",
+    details: {
+      overview:
+        "A foundation-building project combining guided coursework with practical exposure to machine learning workflows and cloud-based AI services.",
+      approach: [
+        "Studied the stages of a machine learning workflow from data preparation through evaluation.",
+        "Explored generative AI concepts and the role of managed AWS services.",
+        "Connected Python fundamentals with practical machine learning and cloud exercises.",
+      ],
+      focus: "Python, machine learning workflows, generative AI and AWS foundations.",
+    },
     tags: ["AWS", "Machine learning", "Python"],
     media: {
       image: mlCover,
