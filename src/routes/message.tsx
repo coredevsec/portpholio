@@ -12,12 +12,12 @@ export const Route = createFileRoute("/message")({
       { title: `Message ${profile.name}` },
       {
         name: "description",
-        content: `Send a secure message to ${profile.name} — no third-party inbox required.`,
+        content: `Send a secure message to ${profile.name} · no third party inbox required.`,
       },
       { property: "og:title", content: `Message ${profile.name}` },
       {
         property: "og:description",
-        content: `Send a secure message to ${profile.name} — no third-party inbox required.`,
+        content: `Send a secure message to ${profile.name} · no third party inbox required.`,
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -62,7 +62,7 @@ function MessagePage() {
             <p className="eyebrow">Message me</p>
             <h1 className="font-display mt-3 text-3xl md:text-4xl">Send a message</h1>
             <p className="mt-4 max-w-xl text-muted-foreground">
-              Fill in the form and your message reaches me directly — no third-party inbox in
+              Fill in the form and your message reaches me directly · no third party inbox in
               between.
             </p>
             <div className="mt-6">

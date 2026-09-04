@@ -180,7 +180,7 @@ export function ContactForm() {
         {sending ? "Sending…" : "Send message"}
       </button>
       <p className="text-xs text-muted-foreground">
-        Your details are sent over an encrypted connection and stored privately — only I can read
+        Your details are sent over an encrypted connection and stored privately · only I can read
         them.
       </p>
     </form>
