@@ -84,7 +84,7 @@ export function ContactForm() {
       setValues(empty);
       setErrors({});
       setSent(true);
-      toast.success("Thanks — your message has been sent.");
+      toast.success("Thanks · your message has been sent.");
     } catch (error) {
       console.error("EmailJS send failed", error);
       toast.error(
