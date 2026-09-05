@@ -83,12 +83,12 @@ function DocButton({
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: `${profile.name} 3D Portfolio` },
+      { title: `${profile.name} · 3D Portfolio` },
       {
         name: "description",
         content: `Interactive 3D portfolio of ${profile.name}: projects with image and video showcases, experience, skills, education and certifications.`,
       },
-      { property: "og:title", content: `${profile.name} — 3D Portfolio` },
+      { property: "og:title", content: `${profile.name} · 3D Portfolio` },
       {
         property: "og:description",
         content: `Interactive 3D showcase of the work, experience and credentials of ${profile.name}.`,
@@ -461,7 +461,7 @@ function Portfolio() {
               intensity={3}
             >
               <p className="layer-3d mb-6 max-w-xl text-muted-foreground">
-                Fill in the form and your message reaches me directly — no third-party inbox in
+                Fill in the form and your message reaches me directly · no third-party inbox in
                 between.
               </p>
               <ContactForm />
