@@ -94,7 +94,7 @@ export const projects: Project[] = [
     slug: "tryhackme-security-labs",
     year: "2025",
     blurb:
-      "Ongoing practical cybersecurity training through the Careers in Cyber and defensive security paths — Linux, networking and threat analysis fundamentals.",
+      "Ongoing practical cybersecurity training through the Careers in Cyber and defensive security paths · Linux, networking and threat analysis fundamentals.",
     details: {
       overview:
         "A hands-on learning track built around practical security labs, with an emphasis on understanding systems by investigating them directly.",
