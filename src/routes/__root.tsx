@@ -76,10 +76,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: `${profile.name} — 3D Portfolio` },
+      { title: `${profile.name} · 3D Portfolio` },
       { name: "description", content: `Interactive 3D portfolio of ${profile.name}.` },
       { name: "author", content: profile.name },
-      { property: "og:title", content: `${profile.name} — 3D Portfolio` },
+      { property: "og:title", content: `${profile.name} · 3D Portfolio` },
       { property: "og:description", content: `Interactive 3D portfolio of ${profile.name}.` },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
