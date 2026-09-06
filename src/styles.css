@@ -222,6 +222,27 @@
   touch-action: none;
 }
 
+@media (max-width: 639px) {
+  .hero-robot .robot-scene {
+    min-width: 0;
+  }
+
+  .hero-robot .robot-rig {
+    height: 260px;
+  }
+
+  .hero-robot .robot-scene > p {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-actions > * {
+    max-width: 100%;
+    font-size: 9px;
+  }
+}
+
 @utility robot-rig {
   position: relative;
   height: 400px;

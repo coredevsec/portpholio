@@ -185,28 +185,28 @@ function Portfolio() {
         <main id="main" className="pt-24">
           <div className="scene-3d py-10 sm:py-14 md:py-24">
             <div className="card-3d overflow-hidden rounded-lg border border-border bg-card p-4 sm:p-7 md:p-12">
-              <div className="grid min-w-0 items-center gap-5 md:grid-cols-[1.1fr_1fr] md:gap-10">
+              <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_minmax(7rem,34%)] items-center gap-2 sm:gap-5 md:grid-cols-[1.1fr_1fr] md:gap-10">
                 <div className="layer-3d min-w-0">
-                  <p className="eyebrow text-[10px] sm:text-[11px]">{profile.location}</p>
-                  <h1 className="font-display text-3d mt-4 text-4xl leading-[1.05] sm:text-5xl md:text-7xl">
+                  <p className="eyebrow text-[8px] sm:text-[11px]">{profile.location}</p>
+                  <h1 className="font-display text-3d mt-2 text-2xl leading-[1.05] sm:mt-4 sm:text-5xl md:text-7xl">
                     {profile.name}
                   </h1>
-                  <p className="mt-4 max-w-xl text-base text-muted-foreground sm:text-lg md:mt-6 md:text-xl">
+                  <p className="mt-2 max-w-xl text-[11px] leading-snug text-muted-foreground sm:mt-4 sm:text-lg md:mt-6 md:text-xl">
                     {profile.headline}
                   </p>
-                  <div className="mt-6 flex flex-col flex-wrap items-stretch gap-3 sm:mt-8 sm:flex-row sm:items-center sm:gap-4">
+                  <div className="hero-actions mt-3 flex flex-wrap items-center gap-1.5 sm:mt-8 sm:gap-4">
                     <a
                       href={profile.links.linkedin}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-sm bg-primary px-4 py-2.5 text-sm text-primary-foreground transition-opacity hover:opacity-90 sm:px-5"
+                      className="inline-flex items-center justify-center rounded-sm bg-primary px-2 py-1.5 text-[10px] text-primary-foreground transition-opacity hover:opacity-90 sm:px-5 sm:py-2.5 sm:text-sm"
                     >
                       LinkedIn profile
                       <span className="sr-only"> (opens in a new tab)</span>
                     </a>
                     <a
                       href="#credentials"
-                      className="inline-flex items-center justify-center gap-2 rounded-sm border border-border px-3 py-2 text-sm transition-colors hover:border-accent hover:text-accent"
+                      className="inline-flex items-center justify-center gap-1 rounded-sm border border-border px-2 py-1.5 text-[10px] transition-colors hover:border-accent hover:text-accent sm:gap-2 sm:px-3 sm:py-2 sm:text-sm"
                     >
                       <FileText size={15} aria-hidden="true" />
                       View certificates
@@ -214,13 +214,13 @@ function Portfolio() {
                     <DocButton href={documents.cv} label="Download CV" icon={Download} />
                     <a
                       href="#work"
-                      className="inline-flex items-center border-b border-accent pb-1 text-sm text-accent transition-opacity hover:opacity-70"
+                      className="inline-flex items-center border-b border-accent pb-0.5 text-[10px] text-accent transition-opacity hover:opacity-70 sm:pb-1 sm:text-sm"
                     >
                       See selected work
                     </a>
                   </div>
                 </div>
-                <div className="min-w-0 overflow-hidden sm:mt-0">
+                <div className="hero-robot min-w-0 overflow-hidden sm:mt-0">
                   <HeroRobot3D />
                 </div>
               </div>
