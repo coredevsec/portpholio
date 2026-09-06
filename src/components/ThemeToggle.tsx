@@ -52,7 +52,12 @@ export function ThemeToggle() {
       onClick={() => setPreference(nextPreference)}
       className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
     >
-      <span aria-hidden="true">{preference === "auto" ? "◐" : isDark ? "☾" : "☀"}</span>
+      <span
+        className={isDark ? "theme-moon-lit" : "theme-sun-lit"}
+        aria-hidden="true"
+      >
+        {isDark ? "☾" : preference === "auto" ? "◐" : "☀"}
+      </span>
       {preference === "auto" ? "Auto" : isDark ? "Night" : "Day"}
     </button>
   );

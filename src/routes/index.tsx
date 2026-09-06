@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import {
   Coffee,
   Download,
@@ -109,7 +110,7 @@ function Section({
   id: string;
   label: string;
   title: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <section
@@ -154,36 +155,38 @@ function Portfolio() {
       </a>
 
       <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 md:px-10">
-        <header className="sticky top-0 z-40 -mx-4 flex flex-wrap items-center justify-between gap-3 border-b border-border bg-background/95 px-4 py-3 backdrop-blur sm:-mx-6 sm:px-6 md:-mx-10 md:px-10">
-          <Link to="/logo" aria-label={`View ${profile.name} logo`} className="shrink-0">
-            <img
-              src="/krd.png"
-              alt={`${profile.name} logo`}
-              className="h-10 w-auto max-w-[7rem] object-contain sm:h-12 sm:max-w-[8rem]"
-            />
-          </Link>
-          <nav
-            aria-label="Sections"
-            className="order-3 flex w-full flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[11px] text-muted-foreground sm:gap-x-4 sm:text-xs md:order-none md:w-auto md:text-sm"
-          >
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                className="transition-colors hover:text-foreground"
-                href={item.href}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <ThemeToggle />
+        <header className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/70 px-4 py-3 shadow-sm shadow-foreground/5 backdrop-blur-xl sm:px-6 md:px-10">
+          <div className="mx-auto flex w-full max-w-4xl flex-wrap items-center justify-between gap-3">
+            <Link to="/logo" aria-label={`View ${profile.name} logo`} className="shrink-0">
+              <img
+                src="/krd.png"
+                alt={`${profile.name} logo`}
+                className="h-10 w-auto max-w-[7rem] object-contain sm:h-12 sm:max-w-[8rem]"
+              />
+            </Link>
+            <nav
+              aria-label="Sections"
+              className="order-3 flex w-full flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[11px] text-muted-foreground sm:gap-x-4 sm:text-xs md:order-none md:w-auto md:text-sm"
+            >
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  className="transition-colors hover:text-foreground"
+                  href={item.href}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+            <ThemeToggle />
+          </div>
         </header>
 
-        <main id="main">
+        <main id="main" className="pt-24">
           <div className="scene-3d py-10 sm:py-14 md:py-24">
-            <div className="card-3d rounded-lg border border-border bg-card p-5 sm:p-7 md:p-12">
-              <div className="grid items-center gap-6 md:grid-cols-[1.1fr_1fr] md:gap-10">
-                <div className="layer-3d">
+            <div className="card-3d overflow-hidden rounded-lg border border-border bg-card p-4 sm:p-7 md:p-12">
+              <div className="grid min-w-0 items-center gap-5 md:grid-cols-[1.1fr_1fr] md:gap-10">
+                <div className="layer-3d min-w-0">
                   <p className="eyebrow text-[10px] sm:text-[11px]">{profile.location}</p>
                   <h1 className="font-display text-3d mt-4 text-4xl leading-[1.05] sm:text-5xl md:text-7xl">
                     {profile.name}
@@ -217,7 +220,7 @@ function Portfolio() {
                     </a>
                   </div>
                 </div>
-                <div className="mt-2 sm:mt-0">
+                <div className="min-w-0 overflow-hidden sm:mt-0">
                   <HeroRobot3D />
                 </div>
               </div>
@@ -235,7 +238,7 @@ function Portfolio() {
 
           <Section id="work" label="Selected work" title="Projects">
             <div className="mb-10">
-              <Carousel opts={{ loop: true }} autoPlayMs={4500} className="mx-auto max-w-3xl">
+              <Carousel opts={{ loop: true }} autoPlayMs={4500} className="mx-auto w-full max-w-3xl">
                 <CarouselContent>
                   {projects.map((project) => (
                     <CarouselItem key={`featured-${project.name}`}>

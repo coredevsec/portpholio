@@ -28,7 +28,11 @@ export function HeroRobot3D() {
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    const updateScale = () => setScale(window.innerWidth < 480 ? 0.8 : 1);
+    const updateScale = () => {
+      if (window.innerWidth < 380) setScale(0.58);
+      else if (window.innerWidth < 480) setScale(0.68);
+      else setScale(1);
+    };
     updateScale();
     window.addEventListener("resize", updateScale);
     return () => window.removeEventListener("resize", updateScale);

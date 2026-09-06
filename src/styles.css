@@ -319,6 +319,7 @@
   transform-style: preserve-3d;
   box-shadow: 0 20px 40px -22px oklch(0 0 0 / 0.5);
   cursor: pointer;
+  animation: robot-head-bob 3.8s ease-in-out infinite;
 }
 
 @utility robot-face {
@@ -347,6 +348,8 @@
   margin-left: -1px;
   background: var(--border);
   transform: translateZ(10px);
+  transform-origin: bottom center;
+  animation: robot-antenna-sway 2.8s ease-in-out infinite;
 }
 
 @utility robot-body {
@@ -402,16 +405,19 @@
   border: 1px solid var(--border);
   background: var(--secondary);
   transform: translateZ(8px);
+  transform-origin: top center;
 }
 
 @utility robot-arm-left {
   left: 50%;
   margin-left: -136px;
+  animation: robot-arm-left-wave 3.6s ease-in-out infinite;
 }
 
 @utility robot-arm-right {
   left: 50%;
   margin-left: 112px;
+  animation: robot-arm-right-wave 3.6s ease-in-out infinite;
 }
 
 @utility robot-shadow {
@@ -447,6 +453,98 @@
   }
 }
 
+@keyframes robot-head-bob {
+  0%,
+  100% {
+    transform: translateZ(46px) rotateZ(-1deg);
+  }
+  50% {
+    transform: translateZ(46px) translateY(-5px) rotateZ(1deg);
+  }
+}
+
+@keyframes robot-antenna-sway {
+  0%,
+  100% {
+    transform: translateZ(10px) rotateZ(-8deg);
+  }
+  50% {
+    transform: translateZ(10px) rotateZ(8deg);
+  }
+}
+
+@keyframes robot-ear-left-twitch {
+  0%,
+  70%,
+  100% {
+    transform: translateZ(30px) rotateZ(0deg);
+  }
+  76% {
+    transform: translateZ(30px) rotateZ(-16deg);
+  }
+}
+
+@keyframes robot-ear-right-twitch {
+  0%,
+  76%,
+  100% {
+    transform: translateZ(30px) rotateZ(0deg);
+  }
+  82% {
+    transform: translateZ(30px) rotateZ(16deg);
+  }
+}
+
+@keyframes robot-arm-left-wave {
+  0%,
+  100% {
+    transform: translateZ(8px) rotateZ(3deg);
+  }
+  50% {
+    transform: translateZ(8px) rotateZ(-10deg);
+  }
+}
+
+@keyframes robot-arm-right-wave {
+  0%,
+  100% {
+    transform: translateZ(8px) rotateZ(-3deg);
+  }
+  50% {
+    transform: translateZ(8px) rotateZ(10deg);
+  }
+}
+
+@keyframes robot-hand-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+  50% {
+    transform: translateY(5px) rotateZ(12deg);
+  }
+}
+
+@keyframes robot-leg-left-shift {
+  0%,
+  100% {
+    transform: translateZ(14px) rotateZ(1deg);
+  }
+  50% {
+    transform: translateZ(14px) rotateZ(-4deg);
+  }
+}
+
+@keyframes robot-leg-right-shift {
+  0%,
+  100% {
+    transform: translateZ(14px) rotateZ(-1deg);
+  }
+  50% {
+    transform: translateZ(14px) rotateZ(4deg);
+  }
+}
+
 
 @layer base {
   body {
@@ -472,6 +570,18 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--muted-foreground);
+}
+
+.theme-moon-lit {
+  color: var(--accent);
+  filter: drop-shadow(0 0 6px var(--accent));
+  text-shadow: 0 0 8px var(--accent);
+}
+
+.theme-sun-lit {
+  color: var(--primary);
+  filter: drop-shadow(0 0 6px var(--primary));
+  text-shadow: 0 0 8px var(--primary);
 }
 
 /* ---- 3D layer ---- */
@@ -501,12 +611,18 @@
 @utility media-frame-inner {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 3;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   background-color: var(--secondary);
   transform: translateZ(24px);
   box-shadow: 0 24px 50px -28px oklch(0.215 0.021 62 / 0.45);
+}
+
+@media (min-width: 640px) {
+  .media-frame-inner {
+    aspect-ratio: 16 / 10;
+  }
 }
 
 @layer base {
@@ -551,16 +667,19 @@
   background: var(--accent);
   opacity: 0.7;
   transform: translateZ(30px);
+  transform-origin: center;
 }
 
 @utility robot-ear-left {
   left: 50%;
   margin-left: -70px;
+  animation: robot-ear-left-twitch 2.4s ease-in-out infinite;
 }
 
 @utility robot-ear-right {
   left: 50%;
   margin-left: 60px;
+  animation: robot-ear-right-twitch 2.4s ease-in-out infinite;
 }
 
 @utility robot-mouth {
@@ -586,6 +705,7 @@
   border-radius: 999px;
   background: var(--card);
   border: 1px solid var(--border);
+  animation: robot-hand-bob 1.8s ease-in-out infinite;
 }
 
 @utility robot-hip {
@@ -610,16 +730,19 @@
   background: linear-gradient(150deg, var(--card), var(--secondary));
   border: 1px solid var(--border);
   transform: translateZ(14px);
+  transform-origin: top center;
 }
 
 @utility robot-leg-left {
   left: 50%;
   margin-left: -54px;
+  animation: robot-leg-left-shift 3.2s ease-in-out infinite;
 }
 
 @utility robot-leg-right {
   left: 50%;
   margin-left: 24px;
+  animation: robot-leg-right-shift 3.2s ease-in-out infinite;
 }
 
 @utility robot-foot {
