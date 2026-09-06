@@ -29,8 +29,9 @@ export function HeroRobot3D() {
 
   useEffect(() => {
     const updateScale = () => {
-      if (window.innerWidth < 380) setScale(0.58);
-      else if (window.innerWidth < 480) setScale(0.68);
+      if (window.innerWidth < 380) setScale(0.46);
+      else if (window.innerWidth < 640) setScale(0.52);
+      else if (window.innerWidth < 768) setScale(0.68);
       else setScale(1);
     };
     updateScale();
@@ -112,7 +113,9 @@ export function HeroRobot3D() {
         role="button"
         tabIndex={0}
         aria-label="Cycle the robot terminal readout"
-        style={{ transform: `scale(${scale}) rotateX(${rot.x}deg) rotateY(${rot.y}deg)` }}
+        style={{
+          transform: `scale(${scale}) scaleY(1.08) rotateX(${rot.x}deg) rotateY(${rot.y}deg)`,
+        }}
       >
         <div className="robot-head" aria-hidden="true">
           <span className="robot-face">
