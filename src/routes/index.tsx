@@ -220,7 +220,7 @@ function Portfolio() {
                     </a>
                   </div>
                 </div>
-                <div className="hero-robot min-w-0 overflow-hidden sm:mt-0">
+                <div className="hero-robot min-w-0 sm:mt-0">
                   <HeroRobot3D />
                 </div>
               </div>
