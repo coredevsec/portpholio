@@ -86,7 +86,7 @@ export const projects: Project[] = [
     media: {
       image: kycCover,
       alt: "Layered identity document cards with a fingerprint and verification shield",
-      caption: "Add your own screenshots or a screen-recording walkthrough here.",
+      caption: "A high-volume identity review workflow built around careful checks, fraud awareness and consistent decisions.",
     },
   },
   {
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     media: {
       image: securityCover,
       alt: "Isometric security lab with terminal windows, a padlock and a network graph",
-      caption: "Drop a lab demo video in here when you record one.",
+      caption: "Practical security labs covering Linux systems, networking fundamentals and defensive investigation.",
     },
   },
   {
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     media: {
       image: mlCover,
       alt: "Isometric stacked machine learning layers with cloud blocks and a rising data curve",
-      caption: "Certificate images or a project demo can live in this slot.",
+      caption: "A foundation in Python, machine learning workflows, generative AI concepts and AWS services.",
     },
   },
 ];

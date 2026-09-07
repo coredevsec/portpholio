@@ -185,12 +185,14 @@ function Portfolio() {
         <main id="main" className="pt-24">
           <div className="scene-3d py-10 sm:py-14 md:py-24">
             <div className="card-3d overflow-hidden rounded-lg border border-border bg-card p-4 sm:p-7 md:p-12">
-              <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_minmax(7rem,34%)] items-center gap-2 sm:gap-5 md:grid-cols-[1.1fr_1fr] md:gap-10">
+              <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_minmax(8.5rem,40%)] items-center gap-2 sm:gap-5 md:grid-cols-[1.1fr_1fr] md:gap-10">
                 <div className="layer-3d min-w-0">
                   <p className="eyebrow text-[8px] sm:text-[11px]">{profile.location}</p>
-                  <h1 className="font-display text-3d mt-2 text-2xl leading-[1.05] sm:mt-4 sm:text-5xl md:text-7xl">
-                    {profile.name}
-                  </h1>
+                  <div className="hero-name-window mt-2 sm:mt-4">
+                    <h1 className="hero-name w-max whitespace-nowrap text-3xl leading-[1.05] sm:text-6xl md:text-7xl">
+                      {profile.name}
+                    </h1>
+                  </div>
                   <p className="mt-2 max-w-xl text-[11px] leading-snug text-muted-foreground sm:mt-4 sm:text-lg md:mt-6 md:text-xl">
                     {profile.headline}
                   </p>
@@ -239,9 +241,9 @@ function Portfolio() {
           <Section id="work" label="Selected work" title="Projects">
             <div className="mb-10">
               <Carousel opts={{ loop: true }} autoPlayMs={4500} className="mx-auto w-full max-w-3xl">
-                <CarouselContent>
+                <CarouselContent className="w-full justify-center">
                   {projects.map((project) => (
-                    <CarouselItem key={`featured-${project.name}`}>
+                    <CarouselItem key={`featured-${project.name}`} className="w-full">
                       <Link
                         to="/projects/$projectId"
                         params={{ projectId: project.slug }}

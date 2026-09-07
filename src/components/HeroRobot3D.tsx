@@ -29,9 +29,9 @@ export function HeroRobot3D() {
 
   useEffect(() => {
     const updateScale = () => {
-      if (window.innerWidth < 380) setScale(0.46);
-      else if (window.innerWidth < 640) setScale(0.52);
-      else if (window.innerWidth < 768) setScale(0.68);
+      if (window.innerWidth < 380) setScale(0.62);
+      else if (window.innerWidth < 640) setScale(0.72);
+      else if (window.innerWidth < 768) setScale(0.82);
       else setScale(1);
     };
     updateScale();
@@ -154,7 +154,7 @@ export function HeroRobot3D() {
         <div className="robot-shadow" aria-hidden="true" />
       </div>
       <p className="mt-4 text-center text-xs text-muted-foreground">
-        Drag your cursor to orbit · click the robot to run a command
+        Drag to rotate · tap to run a command
       </p>
     </div>
   );
