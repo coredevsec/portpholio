@@ -177,7 +177,7 @@
   --border: oklch(0.878 0.016 84);
   --input: oklch(0.878 0.016 84);
   --ring: oklch(0.53 0.145 42);
-  --robot-screen-background: var(--foreground);
+  --robot-screen-background: oklch(0.16 0.02 265);
 }
 
 /* Night mode: deep slate paper, warm amber accent */
@@ -268,21 +268,22 @@
 
 .hero-name {
   display: inline-block;
-  color: color-mix(in oklch, var(--robot-screen-background) 65%, var(--primary) 35%);
+  color: var(--robot-screen-background);
+  opacity: 0.64;
+  opacity: 0.82;
   font-family: var(--font-display);
   font-size: clamp(1.875rem, 6vw, 4.5rem);
   font-weight: 700;
   letter-spacing: 0;
   text-shadow: 3px 4px 10px oklch(0 0 0 / 0.2);
-  animation: hero-name-marquee 15s linear infinite;
+  animation: hero-name-marquee 24s linear infinite;
   will-change: transform;
 }
 
 .dark .hero-name {
-  color: var(--robot-screen-background);
-  text-shadow:
-    0 0 3px oklch(1 0 0 / 0.55),
-    3px 4px 10px oklch(0 0 0 / 0.25);
+  color: oklch(1 0 0);
+  opacity: 0.78;
+  text-shadow: 3px 4px 10px oklch(0 0 0 / 0.3);
 }
 
 @keyframes hero-name-marquee {
