@@ -50,7 +50,7 @@ function LogoPage() {
             <img
               src="/krd.png"
               alt={`${profile.name} logo`}
-              className="mx-auto max-h-[70vh] w-full max-w-xl object-contain"
+              className="logo-pop mx-auto max-h-[70vh] w-full max-w-xl object-contain"
             />
             <figcaption className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
               <Maximize2 size={15} aria-hidden="true" />

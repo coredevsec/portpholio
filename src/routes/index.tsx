@@ -189,7 +189,7 @@ function Portfolio() {
                 <div className="layer-3d min-w-0">
                   <p className="eyebrow text-[8px] sm:text-[11px]">{profile.location}</p>
                   <div className="hero-name-window mt-2 sm:mt-4">
-                    <h1 className="hero-name w-max whitespace-nowrap text-3xl leading-[1.05] sm:text-6xl md:text-7xl">
+                    <h1 className="hero-name w-max whitespace-nowrap text-3xl leading-[1.2] sm:text-6xl md:text-7xl">
                       {profile.name}
                     </h1>
                   </div>

@@ -177,6 +177,7 @@
   --border: oklch(0.878 0.016 84);
   --input: oklch(0.878 0.016 84);
   --ring: oklch(0.53 0.145 42);
+  --robot-screen-background: var(--foreground);
 }
 
 /* Night mode: deep slate paper, warm amber accent */
@@ -201,6 +202,7 @@
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.78 0.14 62);
+  --robot-screen-background: oklch(0.16 0.02 265);
 }
 
 @layer base {
@@ -261,28 +263,25 @@
 .hero-name-window {
   max-width: 100%;
   overflow: hidden;
+  padding-block: 0.15em;
 }
 
 .hero-name {
   display: inline-block;
-  color: var(--muted-foreground);
+  color: color-mix(in oklch, var(--robot-screen-background) 65%, var(--primary) 35%);
   font-family: var(--font-display);
   font-size: clamp(1.875rem, 6vw, 4.5rem);
   font-weight: 700;
   letter-spacing: 0;
-  text-shadow:
-    0 0 2px var(--primary),
-    0 0 6px oklch(0.53 0.145 42 / 0.4),
-    3px 4px 10px oklch(0 0 0 / 0.2);
+  text-shadow: 3px 4px 10px oklch(0 0 0 / 0.2);
   animation: hero-name-marquee 15s linear infinite;
   will-change: transform;
 }
 
 .dark .hero-name {
-  color: var(--muted-foreground);
+  color: var(--robot-screen-background);
   text-shadow:
-    0 0 2px var(--primary),
-    0 0 5px oklch(0.72 0.145 52 / 0.3),
+    0 0 3px oklch(1 0 0 / 0.55),
     3px 4px 10px oklch(0 0 0 / 0.25);
 }
 
@@ -440,11 +439,15 @@
   padding: 12px 14px;
   border-radius: 10px;
   border: 1px solid var(--border);
-  background: oklch(0.16 0.02 265);
+  background: var(--robot-screen-background);
   color: oklch(0.95 0.01 90);
   font-family: ui-monospace, "SFMono-Regular", monospace;
   font-size: 0.75rem;
   transform: translateZ(16px);
+}
+
+.dark .robot-screen {
+  background: var(--robot-screen-background);
 }
 
 @utility robot-line {
@@ -646,6 +649,23 @@
   color: oklch(0.78 0.16 85);
   filter: drop-shadow(0 0 6px oklch(0.78 0.16 85));
   text-shadow: 0 0 8px oklch(0.78 0.16 85);
+}
+
+.logo-pop {
+  animation: logo-pop 3.8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes logo-pop {
+  0%,
+  100% {
+    transform: scale(0.94) translateY(4px);
+    filter: drop-shadow(0 8px 10px oklch(0 0 0 / 0.12));
+  }
+  50% {
+    transform: scale(1.04) translateY(-4px);
+    filter: drop-shadow(0 18px 20px oklch(0 0 0 / 0.24));
+  }
 }
 
 /* ---- 3D layer ---- */
