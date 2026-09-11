@@ -152,7 +152,7 @@ export const skillGroups: { label: string; items: Skill[] }[] = [
       { label: "Java", href: "https://dev.java/", color: "#e76f00" },
       { label: "Python", href: "https://www.python.org/", color: "#3776ab" },
       { label: "JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", color: "#d6a900" },
-      { label: "SQL Server", href: "https://www.microsoft.com/en-us/sql-server", color: "#cc2927", iconUrl: "https://cdn.simpleicons.org/microsoftsqlserver/CC2927" },
+      { label: "SQL Server", href: "https://www.microsoft.com/en-us/sql-server", color: "#cc2927", iconUrl: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/microsoftsqlserver.svg" },
       { label: "Linux", href: "https://www.kernel.org/", color: "#e6a700" },
       { label: "Networking", href: "https://www.cisco.com/site/us/en/learn/topics/networking/what-is-computer-networking.html", color: "#1ba0d7" },
     ],
@@ -162,7 +162,7 @@ export const skillGroups: { label: string; items: Skill[] }[] = [
     items: [
       { label: "IntelliJ IDEA", href: "https://www.jetbrains.com/idea/", color: "#fe2857" },
       { label: "Replit", href: "https://replit.com/", color: "#f26207" },
-      { label: "AWS", href: "https://aws.amazon.com/", color: "#ff9900", iconUrl: "https://cdn.simpleicons.org/amazonaws/FF9900" },
+      { label: "AWS", href: "https://aws.amazon.com/", color: "#ff9900", iconUrl: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/amazonwebservices.svg" },
       { label: "Google Ads", href: "https://ads.google.com/", color: "#4285f4" },
       { label: "HubSpot", href: "https://www.hubspot.com/", color: "#ff7a59" },
       { label: "Excel", href: "https://www.microsoft.com/en-us/microsoft-365/excel", color: "#217346" },
