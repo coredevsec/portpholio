@@ -650,7 +650,7 @@ function Portfolio() {
           </Section>
         </main>
 
-        <footer className="mx-auto w-full max-w-4xl border-t border-border py-0 text-center text-[10px] leading-none text-muted-foreground sm:text-xs">
+        <footer className="mx-auto w-full max-w-4xl border-t border-border py-1 text-center text-[10px] leading-4 text-muted-foreground sm:py-1.5 sm:text-xs sm:leading-5">
           © {new Date().getFullYear()} Korede Ogundana
         </footer>
       </div>
