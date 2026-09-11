@@ -242,9 +242,9 @@
 
 @media (max-width: 639px) {
   .hero-robot {
-    width: 100%;
+    width: auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
   .hero-robot .robot-scene {
