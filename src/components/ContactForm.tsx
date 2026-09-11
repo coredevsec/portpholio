@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { z } from "zod";
 import { toast } from "sonner";
@@ -39,6 +39,16 @@ export function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [messagePlaceholder, setMessagePlaceholder] = useState(
+    "Tell me about the role, project or opportunity.",
+  );
+
+  useEffect(() => {
+    if (window.sessionStorage.getItem("purchase-intent") === "true") {
+      setMessagePlaceholder("Explain what product or services you want to purchase");
+      window.sessionStorage.removeItem("purchase-intent");
+    }
+  }, []);
 
   const update = (key: keyof Fields) => (value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -159,7 +169,7 @@ export function ContactForm() {
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "contact-message-error" : undefined}
           className={`${fieldClass} resize-y`}
-          placeholder="Tell me about the role, project or opportunity."
+          placeholder={messagePlaceholder}
         />
         <p className="mt-1.5 text-xs text-muted-foreground">
           {values.message.trim().length}/2000 characters

@@ -3,6 +3,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 
 import { MediaFrame } from "@/components/MediaFrame";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { ToolBadge } from "@/components/ToolBadge";
 import { projects, profile } from "@/content/profile";
 
 export const Route = createFileRoute("/projects/$projectId")({
@@ -56,14 +57,9 @@ function ProjectPage() {
                 <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
                   {project.blurb}
                 </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-sm bg-secondary px-2 py-1 text-xs text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.tools.map((tool) => (
+                    <ToolBadge key={tool} label={tool} />
                   ))}
                 </div>
               </div>

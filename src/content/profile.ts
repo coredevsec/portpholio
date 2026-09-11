@@ -58,6 +58,7 @@ export type Project = {
     approach: string[];
     focus: string;
   };
+  tools: string[];
   tags: string[];
   url?: string;
   /** Label for the external link, used as accessible text. */
@@ -82,6 +83,7 @@ export const projects: Project[] = [
       ],
       focus: "Identity verification, data integrity and responsible handling of sensitive information.",
     },
+    tools: ["KYC", "SQL Server", "Excel", "Cybersecurity"],
     tags: ["KYC", "Cybersecurity", "Data integrity"],
     media: {
       image: kycCover,
@@ -105,6 +107,7 @@ export const projects: Project[] = [
       ],
       focus: "Linux, networking fundamentals, blue-team thinking and threat analysis.",
     },
+    tools: ["Linux", "Networking", "Python", "TryHackMe"],
     tags: ["Linux", "Networking", "Blue team"],
     url: "https://tryhackme.com",
     urlLabel: "View TryHackMe",
@@ -130,6 +133,7 @@ export const projects: Project[] = [
       ],
       focus: "Python, machine learning workflows, generative AI and AWS foundations.",
     },
+    tools: ["Python", "AWS", "Machine learning", "Generative AI"],
     tags: ["AWS", "Machine learning", "Python"],
     media: {
       image: mlCover,
@@ -139,42 +143,124 @@ export const projects: Project[] = [
   },
 ];
 
-export type Skill = { label: string; href: string };
+export type Skill = { label: string; href: string; color: string; iconUrl?: string };
 
 export const skillGroups: { label: string; items: Skill[] }[] = [
   {
     label: "Engineering",
     items: [
-      { label: "Java", href: "https://dev.java/" },
-      { label: "Python", href: "https://www.python.org/" },
-      { label: "JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-      { label: "SQL Server", href: "https://www.microsoft.com/en-us/sql-server" },
-      { label: "Linux", href: "https://www.kernel.org/" },
-      { label: "Networking", href: "https://www.cisco.com/site/us/en/learn/topics/networking/what-is-computer-networking.html" },
+      { label: "Java", href: "https://dev.java/", color: "#e76f00" },
+      { label: "Python", href: "https://www.python.org/", color: "#3776ab" },
+      { label: "JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", color: "#d6a900" },
+      { label: "SQL Server", href: "https://www.microsoft.com/en-us/sql-server", color: "#cc2927" },
+      { label: "Linux", href: "https://www.kernel.org/", color: "#e6a700" },
+      { label: "Networking", href: "https://www.cisco.com/site/us/en/learn/topics/networking/what-is-computer-networking.html", color: "#1ba0d7" },
     ],
   },
   {
     label: "Tools & platforms",
     items: [
-      { label: "IntelliJ IDEA", href: "https://www.jetbrains.com/idea/" },
-      { label: "Replit", href: "https://replit.com/" },
-      { label: "AWS", href: "https://aws.amazon.com/" },
-      { label: "Google Ads", href: "https://ads.google.com/" },
-      { label: "HubSpot", href: "https://www.hubspot.com/" },
-      { label: "Excel", href: "https://www.microsoft.com/en-us/microsoft-365/excel" },
+      { label: "IntelliJ IDEA", href: "https://www.jetbrains.com/idea/", color: "#fe2857" },
+      { label: "Replit", href: "https://replit.com/", color: "#f26207" },
+      { label: "AWS", href: "https://aws.amazon.com/", color: "#ff9900" },
+      { label: "Google Ads", href: "https://ads.google.com/", color: "#4285f4" },
+      { label: "HubSpot", href: "https://www.hubspot.com/", color: "#ff7a59" },
+      { label: "Excel", href: "https://www.microsoft.com/en-us/microsoft-365/excel", color: "#217346" },
+      { label: "Supabase", href: "https://supabase.com/", color: "#3ecf8e", iconUrl: "https://cdn.simpleicons.org/supabase/3FCF8E" },
+      { label: "Next.js", href: "https://nextjs.org/", color: "#111111" },
+      { label: "React", href: "https://react.dev/", color: "#61dafb" },
+      { label: "Django", href: "https://www.djangoproject.com/", color: "#092e20" },
+      { label: "Cloudflare", href: "https://www.cloudflare.com/", color: "#f38020" },
+      { label: "TypeScript", href: "https://www.typescriptlang.org/", color: "#3178c6" },
+      { label: "HTML5", href: "https://developer.mozilla.org/en-US/docs/Web/HTML", color: "#e34f26" },
+      { label: "CSS3", href: "https://developer.mozilla.org/en-US/docs/Web/CSS", color: "#1572b6" },
+      { label: "Figma", href: "https://www.figma.com/", color: "#f24e1e" },
+      { label: "Beautiful Soup", href: "https://www.crummy.com/software/BeautifulSoup/", color: "#4b8bbe" },
+      { label: "Git", href: "https://git-scm.com/", color: "#f05032" },
     ],
   },
   {
     label: "Operations & safety",
     items: [
-      { label: "KYC verification", href: "https://www.investopedia.com/terms/k/knowyourclient.asp" },
-      { label: "Cybersecurity practices", href: "https://www.nist.gov/cyberframework" },
-      { label: "HSE management systems", href: "https://www.iso.org/standard/63787.html" },
-      { label: "Hazard identification", href: "https://www.osha.gov/safety-management/hazard-identification" },
-      { label: "Accident investigation", href: "https://www.osha.gov/incident-investigation" },
-      { label: "Emotional intelligence in teamwork", href: "https://www.uopeople.edu/" },
+      { label: "KYC verification", href: "https://www.investopedia.com/terms/k/knowyourclient.asp", color: "#00a6a6" },
+      { label: "Cybersecurity practices", href: "https://www.nist.gov/cyberframework", color: "#7b61ff" },
+      { label: "HSE management systems", href: "https://www.iso.org/standard/63787.html", color: "#2a9d8f" },
+      { label: "Hazard identification", href: "https://www.osha.gov/safety-management/hazard-identification", color: "#e9c46a" },
+      { label: "Accident investigation", href: "https://www.osha.gov/incident-investigation", color: "#e76f51" },
+      { label: "Emotional intelligence in teamwork", href: "https://www.uopeople.edu/", color: "#ef476f" },
+      { label: "Accident investigation", href: "https://www.osha.gov/incident-investigation", color: "#e76f51" },
+      { label: "Environmental emergency response", href: "https://www.osha.gov/emergency-preparedness", color: "#2a9d8f" },
+      { label: "Risk management", href: "https://www.iso.org/iso-31000-risk-management.html", color: "#8e44ad" },
+      { label: "IoT", href: "https://www.cisco.com/c/en/us/solutions/internet-of-things/overview.html", color: "#1ba0d7" },
+      { label: "Digital transformation", href: "https://www.ibm.com/think/topics/digital-transformation", color: "#1261a0" },
+      { label: "Google Ads", href: "https://ads.google.com/", color: "#4285f4" },
+      { label: "Wireframing", href: "https://www.interaction-design.org/literature/topics/wireframing", color: "#ff7262" },
+      { label: "Web scraping", href: "https://www.crummy.com/software/BeautifulSoup/", color: "#4b8bbe" },
+      { label: "Cyber defense", href: "https://www.nist.gov/cyberframework", color: "#7b61ff" },
+      { label: "User experience design", href: "https://www.nngroup.com/articles/definition-user-experience/", color: "#ff6b6b" },
+      { label: "Microsoft Excel", href: "https://www.microsoft.com/en-us/microsoft-365/excel", color: "#217346" },
+      { label: "PostgreSQL", href: "https://www.postgresql.org/", color: "#336791", iconUrl: "https://cdn.simpleicons.org/postgresql/4169E1" },
     ],
   },
+];
+
+export const portfolioStats = [
+  { label: "Years of experience", value: 5, suffix: "+" },
+  { label: "Projects shipped", value: 15, suffix: "+" },
+  { label: "Happy clients", value: 10, suffix: "+" },
+];
+
+export const products = [
+  { name: "Starter portfolio source code", description: "A clean React portfolio foundation to customize for your own work.", price: "$29", href: "#contact" },
+  { name: "Security dashboard template", description: "A responsive operations dashboard starter for security and IT workflows.", price: "$49", href: "#contact" },
+  { name: "KYC workflow blueprint", description: "A practical workflow guide for organizing identity review operations.", price: "$19", href: "#contact" },
+  { name: "React landing page kit", description: "Reusable responsive sections for a polished product or service website.", price: "$24", href: "#contact" },
+  { name: "Python automation starter", description: "A small collection of scripts and patterns for repeatable operations work.", price: "$17", href: "#contact" },
+  { name: "Linux command reference", description: "A compact practical reference for everyday Linux and system work.", price: "$9", href: "#contact" },
+  { name: "API integration starter", description: "A structured starting point for connecting forms, services and data.", price: "$32", href: "#contact" },
+  { name: "AI project discovery pack", description: "A guided worksheet for shaping an AI idea into a buildable project.", price: "$14", href: "#contact" },
+  { name: "TypeScript utility pack", description: "Small reusable TypeScript helpers for cleaner application code.", price: "$12", href: "#contact" },
+  { name: "React component starter", description: "A practical collection of reusable interface components for React projects.", price: "$27", href: "#contact" },
+  { name: "Next.js website starter", description: "A structured starting point for a fast modern website with Next.js.", price: "$34", href: "#contact" },
+  { name: "Django API starter", description: "A backend foundation for building organized Python web APIs.", price: "$36", href: "#contact" },
+  { name: "Supabase database starter", description: "A simple foundation for authentication, tables and hosted application data.", price: "$31", href: "#contact" },
+  { name: "Responsive dashboard UI kit", description: "Flexible dashboard screens for admin, operations and analytics products.", price: "$39", href: "#contact" },
+  { name: "Contact form integration kit", description: "A ready-to-customize contact workflow for collecting project inquiries.", price: "$15", href: "#contact" },
+  { name: "Portfolio content planner", description: "A guided template for organizing projects, experience and portfolio copy.", price: "$8", href: "#contact" },
+  { name: "Cybersecurity checklist pack", description: "Practical checklists for reviewing common security and deployment basics.", price: "$11", href: "#contact" },
+  { name: "Linux server setup guide", description: "A concise guide for preparing a Linux server for common web workloads.", price: "$18", href: "#contact" },
+  { name: "Networking study notes", description: "Clear reference notes for networking concepts, protocols and troubleshooting.", price: "$10", href: "#contact" },
+  { name: "KYC operations template", description: "A structured template for organizing identity review queues and decisions.", price: "$22", href: "#contact" },
+  { name: "Machine learning project planner", description: "A planning template for turning a machine learning idea into milestones.", price: "$13", href: "#contact" },
+  { name: "Generative AI prompt workbook", description: "A practical workbook for testing, organizing and refining AI prompts.", price: "$16", href: "#contact" },
+  { name: "AWS learning roadmap", description: "A guided roadmap for building foundational cloud and AWS knowledge.", price: "$12", href: "#contact" },
+  { name: "SQL reporting template", description: "A starting template for turning operational data into useful reports.", price: "$21", href: "#contact" },
+  { name: "Excel operations tracker", description: "A customizable tracker for tasks, reviews, owners and progress.", price: "$9", href: "#contact" },
+  { name: "Landing page copy pack", description: "Starter copy sections for presenting a product, service or personal brand.", price: "$14", href: "#contact" },
+  { name: "Freelance project brief", description: "A concise brief template for defining scope, deliverables and timelines.", price: "$7", href: "#contact" },
+  { name: "Developer handoff checklist", description: "A practical checklist for preparing a project for smooth implementation.", price: "$10", href: "#contact" },
+  { name: "Indie game design workbook", description: "A practical workbook for shaping a small game idea from concept to launch.", price: "$18", href: "#contact" },
+  { name: "Unity 2D starter guide", description: "A beginner-friendly guide to building a small 2D game with Unity.", price: "$22", href: "#contact" },
+  { name: "Godot game prototype kit", description: "A lightweight prototype workflow for experimenting with Godot game ideas.", price: "$24", href: "#contact" },
+  { name: "Game UI asset planner", description: "A planning pack for menus, HUDs, inventories and game interface flows.", price: "$11", href: "#contact" },
+  { name: "Level design worksheet", description: "A structured worksheet for planning levels, objectives, pacing and rewards.", price: "$9", href: "#contact" },
+  { name: "Game launch checklist", description: "A concise checklist for preparing a small game for testing and release.", price: "$12", href: "#contact" },
+  { name: "Twitch stream starter pack", description: "A practical setup guide for launching a consistent gaming stream.", price: "$16", href: "#contact" },
+  { name: "YouTube gaming planner", description: "A repeatable planning template for gaming videos, titles and publishing.", price: "$13", href: "#contact" },
+  { name: "Content calendar template", description: "A reusable calendar for planning posts, videos, newsletters and campaigns.", price: "$10", href: "#contact" },
+  { name: "Short-form video script pack", description: "A collection of concise structures for Reels, Shorts and TikTok content.", price: "$15", href: "#contact" },
+  { name: "Creator brand kit", description: "A simple framework for defining your creator voice, colors and content pillars.", price: "$21", href: "#contact" },
+  { name: "Podcast launch guide", description: "A practical roadmap for planning, recording and publishing a first podcast.", price: "$17", href: "#contact" },
+  { name: "Newsletter content planner", description: "A focused planning template for useful and consistent email content.", price: "$8", href: "#contact" },
+  { name: "Thumbnail design checklist", description: "A quick guide for creating clearer, more clickable video thumbnails.", price: "$7", href: "#contact" },
+  { name: "Creator analytics tracker", description: "A spreadsheet-ready framework for tracking reach, retention and conversions.", price: "$14", href: "#contact" },
+  { name: "Coding interview workbook", description: "Practice prompts and planning pages for preparing for software interviews.", price: "$19", href: "#contact" },
+  { name: "Java programming guide", description: "A practical reference for core Java concepts and project practice.", price: "$23", href: "#contact" },
+  { name: "Python beginner book", description: "A clear project-led introduction to Python syntax and problem solving.", price: "$20", href: "#contact" },
+  { name: "JavaScript fundamentals book", description: "A hands-on guide to JavaScript language features and browser basics.", price: "$21", href: "#contact" },
+  { name: "TypeScript patterns guide", description: "Practical patterns for adding reliable types to modern applications.", price: "$25", href: "#contact" },
+  { name: "React hooks field guide", description: "A focused guide to state, effects and reusable React hook patterns.", price: "$18", href: "#contact" },
+  { name: "Next.js routing guide", description: "A practical guide to pages, layouts, navigation and data in Next.js.", price: "$22", href: "#contact" },
 ];
 
 /**
@@ -225,6 +311,8 @@ export const certificates: {
   issuer: string;
   year: string;
   slug: string;
+  credentialId?: string;
+  skills?: string[];
   image?: string;
   images?: string[];
   href?: string;
@@ -234,6 +322,8 @@ export const certificates: {
     issuer: "Onshore and Offshore Safety Institute",
     year: "2025",
     slug: "hse-levels-1-2-3",
+    credentialId: "HSE15042567SR",
+    skills: ["OHS", "Hazard identification", "Risk management", "Incident investigation", "Environmental emergency response", "HSE management systems"],
     images: ["/certificates/hse-level-1.jpeg",
              "/certificates/hse-level-2.jpeg",
              "/certificates/hse-level-3.jpeg",
@@ -244,6 +334,8 @@ export const certificates: {
     issuer: "University of the People",
     year: "2026",
     slug: "ai-and-automation",
+    credentialId: "c1b4092a-939d-4937-960f-7ba0f54c95e8",
+    skills: ["AI automation", "Digital transformation", "Workplace technology"],
     images: [],
   },
   {
@@ -251,6 +343,7 @@ export const certificates: {
     issuer: "University of the People",
     year: "2026",
     slug: "emotional-intelligence",
+    skills: ["Teamwork", "Communication", "Emotional intelligence"],
     // href: "/emotional-intelligence.pdf",
     images: ["/certificates/emotional-intelligence.png"],
   },
@@ -259,6 +352,8 @@ export const certificates: {
     issuer: "Udacity",
     year: "2025",
     slug: "generative-ai-with-aws",
+    credentialId: "af083a12-6239-11f0-ba26-a7cbd9e90f7d",
+    skills: ["Generative AI", "AWS", "Prompt design"],
     images: [],
   },
   {
@@ -266,6 +361,8 @@ export const certificates: {
     issuer: "Amazon Web Services",
     year: "2025",
     slug: "aws-machine-learning-foundations",
+    credentialId: "9c8a49af-b05f-4dcd-a2d3-ebfecbedce0b",
+    skills: ["Machine learning", "Python", "AWS", "ML pipeline"],
     images: [],
   },
   {
@@ -273,6 +370,7 @@ export const certificates: {
     issuer: "Udemy",
     year: "2024",
     slug: "javascript-sql-server-excel",
+    skills: ["JavaScript", "SQL Server", "Microsoft Excel", "HTML5", "CSS3"],
     images: [],
   },
   {
@@ -280,7 +378,79 @@ export const certificates: {
     issuer: "Maltego Academy",
     year: "2025",
     slug: "Maltego-Cybersecurity",
+    credentialId: "6686b769f3e49b0b4701814e",
+    skills: ["Cybersecurity investigations", "Maltego", "Threat intelligence"],
     images: ["/certificates/maltego-certificate.jpg"],
+  },
+  {
+    name: "Introduction to IoT",
+    issuer: "Cisco",
+    year: "2025",
+    slug: "introduction-to-iot",
+    skills: ["Internet of Things", "Digital transformation", "IoT"],
+  },
+  {
+    name: "Introduction to Cybersecurity",
+    issuer: "Cisco",
+    year: "2025",
+    slug: "introduction-to-cybersecurity",
+    skills: ["Introduction to cybersecurity"],
+  },
+  {
+    name: "Google Ads Certifications",
+    issuer: "Coursera",
+    year: "2024",
+    slug: "google-ads-certifications",
+    credentialId: "EM7GCH4Z4X8M",
+    skills: ["Google Ads", "AdSense", "Advertising"],
+  },
+  {
+    name: "Principles of UX/UI Design",
+    issuer: "Coursera",
+    year: "2024",
+    slug: "principles-of-ux-ui-design",
+    credentialId: "6YBL6JYYTDV6",
+    skills: ["Wireframing", "Prototyping", "User interface design", "User experience design"],
+  },
+  {
+    name: "Basics of Web Scraping with Beautiful Soup",
+    issuer: "Simplilearn",
+    year: "2022",
+    slug: "beautiful-soup-web-scraping",
+    credentialId: "3742621",
+    skills: ["Web scraping", "Beautiful Soup", "Python"],
+  },
+  {
+    name: "Cyber Security 101",
+    issuer: "Simplilearn",
+    year: "2024",
+    slug: "cyber-security-101",
+    credentialId: "4775327",
+    skills: ["Cybersecurity", "Cyber defense", "Cyber threat intelligence"],
+  },
+  {
+    name: "UI/UX Design Certificate Using Figma",
+    issuer: "Udemy",
+    year: "2024",
+    slug: "ui-ux-design-figma",
+    credentialId: "UC-b4647e22-1842-4cfd-aa1a-f70c6daf1622",
+    skills: ["Figma", "Prototyping", "UI automation", "User interface prototyping"],
+  },
+  {
+    name: "MCDBA: Microsoft SQL Server 2000",
+    issuer: "Udemy",
+    year: "2024",
+    slug: "mcdba-microsoft-sql-server",
+    credentialId: "UC-e8a566c3-855e-448c-b6c4-0e07c5a6ab7f",
+    skills: ["Microsoft SQL Server", "PostgreSQL", "SQL"],
+  },
+  {
+    name: "Javascript Build a Calculator using HTML, CSS and Javascript",
+    issuer: "Udemy",
+    year: "2024",
+    slug: "javascript-calculator-html-css",
+    credentialId: "UC-537baa02-d0e4-4cc9-a8db-4b4372bfea2e",
+    skills: ["JavaScript", "CSS", "HTML5"],
   },
 ];
 

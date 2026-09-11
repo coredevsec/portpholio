@@ -62,6 +62,18 @@ function CertificatePage() {
                 <p className="mt-3 text-muted-foreground">
                   {certificate.issuer} · {certificate.year}
                 </p>
+                {certificate.credentialId ? (
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Credential ID: {certificate.credentialId}
+                  </p>
+                ) : null}
+                {certificate.skills?.length ? (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {certificate.skills.map((skill) => (
+                      <span key={skill} className="tool-badge">{skill}</span>
+                    ))}
+                  </div>
+                ) : null}
               </div>
 
               <div className="space-y-6">
