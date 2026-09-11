@@ -140,9 +140,7 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
     scroll-padding-top: 6rem;
-    -webkit-overflow-scrolling: touch;
   }
 
   * {
@@ -169,9 +167,6 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: contain;
-    overscroll-behavior-x: none;
   }
 }
 
@@ -242,7 +237,7 @@
 @utility robot-scene {
   perspective: 900px;
   perspective-origin: 50% 40%;
-  touch-action: pan-y;
+  touch-action: none;
 }
 
 @media (max-width: 639px) {
