@@ -21,11 +21,14 @@ export function Tilt3D({
     const node = ref.current;
     if (!node) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const isMobile = window.innerWidth < 640;
+    const effectiveIntensity = Math.min(intensity + (isMobile ? 2 : 0), 12);
     const rect = node.getBoundingClientRect();
     const px = (event.clientX - rect.left) / rect.width - 0.5;
     const py = (event.clientY - rect.top) / rect.height - 0.5;
     setTransform(
-      `rotateY(${px * intensity * 2}deg) rotateX(${-py * intensity * 2}deg) translateZ(14px)`,
+      `rotateY(${px * effectiveIntensity * 2}deg) rotateX(${-py * effectiveIntensity * 2}deg) translateZ(14px)`,
     );
   };
 
