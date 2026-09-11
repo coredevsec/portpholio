@@ -305,7 +305,7 @@ function Portfolio() {
         <main id="main" className="pt-24">
           <div className="scene-3d py-10 sm:py-14 md:py-24">
             <div className="card-3d overflow-hidden rounded-lg border border-border bg-card p-4 sm:p-7 md:p-12">
-              <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_minmax(8.5rem,40%)] items-center gap-2 sm:gap-5 md:grid-cols-[1.1fr_1fr] md:gap-10">
+              <div className="grid min-w-0 grid-cols-1 items-center gap-4 sm:gap-5 md:grid-cols-[1.1fr_1fr] md:gap-10">
                 <div className="layer-3d min-w-0">
                   <div className="hero-location-window">
                     <p className="hero-location eyebrow text-[8px] sm:text-[11px]">
@@ -347,7 +347,7 @@ function Portfolio() {
                     </a>
                   </div>
                 </div>
-                <div className="hero-robot min-w-0 sm:mt-0">
+                <div className="hero-robot mt-2 min-w-0 sm:mt-0">
                   <HeroRobot3D />
                 </div>
               </div>
@@ -650,7 +650,7 @@ function Portfolio() {
           </Section>
         </main>
 
-        <footer className="w-full border-t border-border py-2 text-center text-sm leading-5 text-muted-foreground">
+        <footer className="w-full border-t border-border py-1.5 text-center text-xs leading-4 text-muted-foreground sm:text-sm">
           © {new Date().getFullYear()} Korede Ogundana
         </footer>
       </div>

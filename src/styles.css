@@ -140,7 +140,6 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
     scroll-padding-top: 6rem;
   }
 
@@ -153,10 +152,15 @@
     overflow-x: hidden;
     max-width: 100%;
     scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   html::-webkit-scrollbar,
-  body::-webkit-scrollbar {
+  body::-webkit-scrollbar,
+  .bounded-list::-webkit-scrollbar,
+  .marketplace-scroll::-webkit-scrollbar,
+  .experience-list::-webkit-scrollbar,
+  .skill-list::-webkit-scrollbar {
     display: none;
   }
 
@@ -237,8 +241,10 @@
 }
 
 @media (max-width: 639px) {
-  .hero-name {
-    font-size: 1rem !important;
+  .hero-robot {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .hero-robot .robot-scene {
@@ -700,13 +706,8 @@
   max-height: 24rem;
   overflow-y: auto;
   padding-right: 0.5rem;
-  scrollbar-color: var(--accent) transparent;
   scrollbar-width: none;
-}
-
-.bounded-list::-webkit-scrollbar,
-.marketplace-scroll::-webkit-scrollbar {
-  display: none;
+  -ms-overflow-style: none;
 }
 
 .tool-badge {
@@ -766,31 +767,29 @@
 .marketplace-scroll {
   height: 21rem;
   overflow-y: auto;
-  scrollbar-color: var(--accent) transparent;
   scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .experience-list {
   scroll-snap-type: y proximity;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .experience-list > .scene-3d {
   scroll-snap-align: start;
 }
 
+.skill-list {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 .experience-list > .scene-3d > .card-3d {
   min-height: 17rem;
 }
 
-.experience-list::-webkit-scrollbar,
-.skill-list::-webkit-scrollbar {
-  display: none;
-}
-
-.experience-list,
-.skill-list {
-  scrollbar-width: none;
-}
 
 .marketplace-product {
   display: flex;
