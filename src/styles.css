@@ -139,6 +139,11 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
   * {
     border-color: var(--color-border);
   }
@@ -232,6 +237,10 @@
 }
 
 @media (max-width: 639px) {
+  .hero-name {
+    font-size: 1rem !important;
+  }
+
   .hero-robot .robot-scene {
     min-width: 0;
   }
@@ -284,7 +293,7 @@
   color: var(--foreground);
   opacity: 0.9;
   font-family: var(--font-display);
-  font-size: clamp(1.875rem, 5vw, 3.5rem);
+  font-size: clamp(1.5rem, 4vw, 3rem);
   font-weight: 700;
   letter-spacing: 0;
   text-shadow: 3px 4px 10px oklch(0 0 0 / 0.2);

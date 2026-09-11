@@ -314,7 +314,7 @@ function Portfolio() {
                   </div>
                   <HeroClock />
                   <div className="hero-name-window hero-name-after-clock mt-2 sm:mt-4">
-                    <h1 className="hero-name block whitespace-nowrap text-3xl leading-[1.2] sm:text-6xl md:text-5xl">
+                    <h1 className="hero-name block whitespace-nowrap text-2xl leading-[1.2] sm:text-5xl md:text-4xl">
                       {profile.name}
                     </h1>
                   </div>
@@ -373,7 +373,7 @@ function Portfolio() {
                 orientation="vertical"
                 opts={{ loop: true }}
                 autoPlayMs={4500}
-                className="mx-auto h-[31rem] w-full max-w-3xl"
+                className="mx-auto h-[34rem] w-full max-w-3xl"
               >
                 <CarouselContent className="w-full">
                   {projects.map((project) => (
@@ -650,7 +650,7 @@ function Portfolio() {
           </Section>
         </main>
 
-        <footer className="mt-auto w-full border-t border-border py-2 text-center text-sm leading-5 text-muted-foreground">
+        <footer className="w-full border-t border-border py-2 text-center text-sm leading-5 text-muted-foreground">
           © {new Date().getFullYear()} Korede Ogundana
         </footer>
       </div>
