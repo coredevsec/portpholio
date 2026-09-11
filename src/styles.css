@@ -1098,6 +1098,27 @@ section#message {
   box-shadow: 0 24px 50px -28px oklch(0.215 0.021 62 / 0.45);
 }
 
+@media (max-width: 639px) {
+  .featured-project-card .media-frame-inner {
+    aspect-ratio: 16 / 9;
+  }
+
+  .featured-project-card h3 {
+    font-size: clamp(1.15rem, 4vw, 1.7rem);
+  }
+
+  .featured-project-card figcaption {
+    font-size: 0.7rem;
+    line-height: 1.35;
+  }
+
+  .featured-project-card .tool-badge {
+    font-size: 0.62rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+}
+
 @media (min-width: 640px) {
   .media-frame-inner {
     aspect-ratio: 16 / 10;

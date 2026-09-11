@@ -381,7 +381,7 @@ function Portfolio() {
                       <Link
                         to="/projects/$projectId"
                         params={{ projectId: project.slug }}
-                        className="block h-full w-full max-w-full overflow-hidden rounded-lg border border-border bg-card p-4 transition-colors hover:border-accent md:p-6"
+                        className="featured-project-card block h-full w-full max-w-full overflow-hidden rounded-lg border border-border bg-card p-4 transition-colors hover:border-accent md:p-6"
                       >
                         <MediaFrame media={project.media} label={project.name} />
                         <div className="mt-5 flex flex-wrap items-baseline justify-between gap-3">
