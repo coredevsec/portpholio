@@ -61,22 +61,22 @@ const TOOL_COLORS: Record<string, string> = {
 };
 
 const TOOL_ICON_URLS: Record<string, string> = {
-  Java: "https://cdn.simpleicons.org/openjdk/E76F00",
-  Python: "https://cdn.simpleicons.org/python/3776AB",
-  JavaScript: "https://cdn.simpleicons.org/javascript/F7DF1E",
-  TypeScript: "https://cdn.simpleicons.org/typescript/3178C6",
-  "SQL Server": "https://cdn.simpleicons.org/microsoftsqlserver/CC2927",
-  Linux: "https://cdn.simpleicons.org/linux/FCC624",
-  Networking: "https://cdn.simpleicons.org/cisco/1BA0D7",
-  AWS: "https://cdn.simpleicons.org/amazonaws/FF9900",
-  React: "https://cdn.simpleicons.org/react/61DAFB",
-  "Next.js": "https://cdn.simpleicons.org/nextdotjs/FFFFFF",
-  Django: "https://cdn.simpleicons.org/django/092E20",
-  Cloudflare: "https://cdn.simpleicons.org/cloudflare/F38020",
-  Git: "https://cdn.simpleicons.org/git/F05032",
-  Figma: "https://cdn.simpleicons.org/figma/F24E1E",
-  Supabase: "https://cdn.simpleicons.org/supabase/3FCF8E",
-  PostgreSQL: "https://cdn.simpleicons.org/postgresql/4169E1",
+  Java: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openjdk.svg",
+  Python: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/python.svg",
+  JavaScript: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/javascript.svg",
+  TypeScript: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/typescript.svg",
+  "SQL Server": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/microsoftsqlserver.svg",
+  Linux: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linux.svg",
+  Networking: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/cisco.svg",
+  AWS: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/amazonwebservices.svg",
+  React: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/react.svg",
+  "Next.js": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/nextdotjs.svg",
+  Django: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/django.svg",
+  Cloudflare: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/cloudflare.svg",
+  Git: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/git.svg",
+  Figma: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/figma.svg",
+  Supabase: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/supabase.svg",
+  PostgreSQL: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/postgresql.svg",
 };
 
 export function ToolBadge({ label, iconUrl }: { label: string; iconUrl?: string }) {
