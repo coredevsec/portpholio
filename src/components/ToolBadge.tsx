@@ -89,6 +89,8 @@ const TOOL_ICON_URLS: Record<string, string> = {
   Git: "https://cdn.simpleicons.org/git/f05032",
   Figma: "https://cdn.simpleicons.org/figma/f24e1e",
   "Google Ads": "https://cdn.simpleicons.org/googleads/4285f4",
+  HubSpot: "https://cdn.simpleicons.org/hubspot/ff7a59",
+  Excel: "https://cdn.simpleicons.org/microsoftexcel/217346",
   Supabase: "https://cdn.simpleicons.org/supabase/3ecf8e",
   PostgreSQL: "https://cdn.simpleicons.org/postgresql/336791",
   Nmap: "https://cdn.simpleicons.org/nmap/2e5eaa",
@@ -100,6 +102,7 @@ const TOOL_ICON_URLS: Record<string, string> = {
   "CrowdStrike Falcon": "https://cdn.simpleicons.org/crowdstrike/f0a500",
   Snort: "https://cdn.simpleicons.org/snort/2e7d32",
   Snyk: "https://cdn.simpleicons.org/snyk/4c5ef7",
+  "Beautiful Soup": "https://cdn.simpleicons.org/beautifulsoup/4b8bbe",
 };
 
 export function ToolBadge({ label, iconUrl }: { label: string; iconUrl?: string }) {
