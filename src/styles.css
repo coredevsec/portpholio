@@ -711,6 +711,23 @@
   -ms-overflow-style: none;
 }
 
+.certificate-strip {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.certificate-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.certificate-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  scroll-snap-align: center;
+}
+
 .tool-badge {
   display: inline-flex;
   align-items: center;

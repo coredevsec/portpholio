@@ -76,24 +76,26 @@ function CertificatePage() {
                 ) : null}
               </div>
 
-              <div className="space-y-6">
-                {images.map((image, index) => (
-                  <figure
-                    key={image}
-                    className="rounded-lg border border-border bg-card p-3 shadow-sm md:p-6"
-                  >
-                    <img
-                      src={image}
-                      alt={`${certificate.name} certificate ${index + 1} issued by ${certificate.issuer}`}
-                      className="mx-auto h-auto max-h-[75vh] w-full object-contain"
-                    />
-                    {images.length > 1 ? (
-                      <figcaption className="mt-3 text-center text-sm text-muted-foreground">
-                        Certificate {index + 1} of {images.length}
-                      </figcaption>
-                    ) : null}
-                  </figure>
-                ))}
+              <div className="certificate-strip -mx-1 overflow-x-auto pb-2 sm:-mx-2">
+                <div className="flex gap-4">
+                  {images.map((image, index) => (
+                    <figure
+                      key={image}
+                      className="certificate-slide rounded-lg border border-border bg-card p-3 shadow-sm md:p-6"
+                    >
+                      <img
+                        src={image}
+                        alt={`${certificate.name} certificate ${index + 1} issued by ${certificate.issuer}`}
+                        className="mx-auto h-auto max-h-[75vh] w-full object-contain"
+                      />
+                      {images.length > 1 ? (
+                        <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+                          Certificate {index + 1} of {images.length}
+                        </figcaption>
+                      ) : null}
+                    </figure>
+                  ))}
+                </div>
               </div>
 
               {certificate.href ? (

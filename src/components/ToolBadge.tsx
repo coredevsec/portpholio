@@ -79,15 +79,29 @@ const TOOL_ICON_URLS: Record<string, string> = {
   PostgreSQL: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/postgresql.svg",
 };
 
+const TOOL_ICON_FILTERS: Record<string, string> = {
+  AWS: "invert(54%) sepia(68%) saturate(7048%) hue-rotate(3deg) brightness(100%) contrast(103%)",
+  "SQL Server": "invert(28%) sepia(91%) saturate(1461%) hue-rotate(330deg) brightness(101%) contrast(101%)",
+  Supabase: "invert(61%) sepia(57%) saturate(945%) hue-rotate(110deg) brightness(102%) contrast(102%)",
+  PostgreSQL: "invert(43%) sepia(50%) saturate(1478%) hue-rotate(212deg) brightness(93%) contrast(104%)",
+};
+
 export function ToolBadge({ label, iconUrl }: { label: string; iconUrl?: string }) {
   const Icon = TOOL_ICONS[label] ?? Code2;
   const color = TOOL_COLORS[label] ?? "var(--accent)";
   const resolvedIconUrl = iconUrl ?? TOOL_ICON_URLS[label];
+  const iconFilter = TOOL_ICON_FILTERS[label];
 
   return (
     <span className="tool-badge">
       {resolvedIconUrl ? (
-        <img src={resolvedIconUrl} alt="" aria-hidden="true" className="tool-badge-image" />
+        <img
+          src={resolvedIconUrl}
+          alt=""
+          aria-hidden="true"
+          className="tool-badge-image"
+          style={iconFilter ? { filter: iconFilter } : undefined}
+        />
       ) : (
         <Icon size={14} aria-hidden="true" style={{ color }} />
       )}

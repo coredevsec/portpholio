@@ -166,7 +166,7 @@ export const skillGroups: { label: string; items: Skill[] }[] = [
       { label: "Google Ads", href: "https://ads.google.com/", color: "#4285f4" },
       { label: "HubSpot", href: "https://www.hubspot.com/", color: "#ff7a59" },
       { label: "Excel", href: "https://www.microsoft.com/en-us/microsoft-365/excel", color: "#217346" },
-      { label: "Supabase", href: "https://supabase.com/", color: "#3ecf8e", iconUrl: "https://cdn.simpleicons.org/supabase/3FCF8E" },
+      { label: "Supabase", href: "https://supabase.com/", color: "#3ecf8e", iconUrl: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/supabase.svg" },
       { label: "Next.js", href: "https://nextjs.org/", color: "#111111" },
       { label: "React", href: "https://react.dev/", color: "#61dafb" },
       { label: "Django", href: "https://www.djangoproject.com/", color: "#092e20" },
@@ -199,7 +199,7 @@ export const skillGroups: { label: string; items: Skill[] }[] = [
       { label: "Cyber defense", href: "https://www.nist.gov/cyberframework", color: "#7b61ff" },
       { label: "User experience design", href: "https://www.nngroup.com/articles/definition-user-experience/", color: "#ff6b6b" },
       { label: "Microsoft Excel", href: "https://www.microsoft.com/en-us/microsoft-365/excel", color: "#217346" },
-      { label: "PostgreSQL", href: "https://www.postgresql.org/", color: "#336791", iconUrl: "https://cdn.simpleicons.org/postgresql/4169E1" },
+      { label: "PostgreSQL", href: "https://www.postgresql.org/", color: "#336791", iconUrl: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/postgresql.svg" },
     ],
   },
 ];
