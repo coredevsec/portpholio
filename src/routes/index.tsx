@@ -145,17 +145,29 @@ function DocButton({
 
   const isExternalLink = /^https?:\/\//i.test(href) || href.startsWith("mailto:") || href.startsWith("tel:");
 
+  if (isExternalLink) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex items-center gap-2 rounded-sm border border-accent px-3 py-1.5 text-sm text-accent transition-opacity hover:opacity-75"
+      >
+        <Icon size={15} aria-hidden="true" />
+        {label}
+        <span className="sr-only"> (opens in a new tab)</span>
+      </a>
+    );
+  }
+
   return (
-    <a
-      href={href}
-      target={isExternalLink ? "_blank" : undefined}
-      rel={isExternalLink ? "noreferrer" : undefined}
+    <Link
+      to={href}
       className="inline-flex items-center gap-2 rounded-sm border border-accent px-3 py-1.5 text-sm text-accent transition-opacity hover:opacity-75"
     >
       <Icon size={15} aria-hidden="true" />
       {label}
-      {isExternalLink ? <span className="sr-only"> (opens in a new tab)</span> : null}
-    </a>
+    </Link>
   );
 }
 
