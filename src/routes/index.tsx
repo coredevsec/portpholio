@@ -120,17 +120,21 @@ function DocButton({
   href,
   label,
   icon: Icon = FileText,
+  disabled = false,
 }: {
   href: string;
   label: string;
   icon?: typeof FileText;
+  disabled?: boolean;
 }) {
-  if (!href) {
+  const isDisabled = disabled || !href;
+
+  if (isDisabled) {
     return (
       <button
         type="button"
         disabled
-        title="Upload the file and set its path in profile.ts to enable"
+        title={disabled ? "Add the certificate image in profile.ts to enable this button." : "Upload the file and set its path in profile.ts to enable"}
         className="inline-flex items-center gap-2 rounded-sm border border-border px-3 py-1.5 text-sm text-muted-foreground opacity-60"
       >
         <Icon size={15} aria-hidden="true" />
@@ -138,6 +142,7 @@ function DocButton({
       </button>
     );
   }
+
   const isExternalLink = /^https?:\/\//i.test(href) || href.startsWith("mailto:") || href.startsWith("tel:");
 
   return (
@@ -149,7 +154,7 @@ function DocButton({
     >
       <Icon size={15} aria-hidden="true" />
       {label}
-      <span className="sr-only"> (opens in a new tab)</span>
+      {isExternalLink ? <span className="sr-only"> (opens in a new tab)</span> : null}
     </a>
   );
 }
@@ -523,23 +528,31 @@ function Portfolio() {
                 <div className="layer-3d">
                   <p className="eyebrow mb-4">Certificates</p>
                   <div className="bounded-list h-64 space-y-5">
-                    {certificates.map((item) => (
-                      <div key={item.name} className="space-y-2">
-                        <p className="font-medium">{item.name}</p>
-                        <p className="text-muted-foreground">
-                          {item.issuer} · {item.year}
-                        </p>
-                        {item.credentialId ? (
-                          <p className="text-xs text-muted-foreground">Credential ID: {item.credentialId}</p>
-                        ) : null}
-                        {item.skills?.length ? (
-                          <div className="flex flex-wrap gap-1.5">
-                            {item.skills.map((skill) => <ToolBadge key={skill} label={skill} />)}
-                          </div>
-                        ) : null}
-                        <DocButton href={`/certificates/${item.slug}`} label="View certificate" />
-                      </div>
-                    ))}
+                    {certificates.map((item) => {
+                      const hasCertificateImage = Boolean(item.images?.length || item.image);
+
+                      return (
+                        <div key={item.name} className="space-y-2">
+                          <p className="font-medium">{item.name}</p>
+                          <p className="text-muted-foreground">
+                            {item.issuer} · {item.year}
+                          </p>
+                          {item.credentialId ? (
+                            <p className="text-xs text-muted-foreground">Credential ID: {item.credentialId}</p>
+                          ) : null}
+                          {item.skills?.length ? (
+                            <div className="flex flex-wrap gap-1.5">
+                              {item.skills.map((skill) => <ToolBadge key={skill} label={skill} />)}
+                            </div>
+                          ) : null}
+                          <DocButton
+                            href={hasCertificateImage ? `/certificates/${item.slug}` : ""}
+                            label="View certificate"
+                            disabled={!hasCertificateImage}
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
 
