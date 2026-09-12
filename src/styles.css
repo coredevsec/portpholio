@@ -712,7 +712,7 @@
 }
 
 .certificate-strip {
-  max-height: clamp(20rem, 62vh, 34rem);
+  max-height: clamp(26rem, 72vh, 40rem);
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: none;
@@ -748,7 +748,7 @@
 }
 
 .certificate-slide img {
-  max-height: clamp(18rem, 54vh, 30rem);
+  max-height: clamp(20rem, 58vh, 32rem);
 }
 
 

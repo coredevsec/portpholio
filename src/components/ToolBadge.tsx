@@ -58,6 +58,15 @@ const TOOL_COLORS: Record<string, string> = {
   "Machine learning": "#f7931e",
   "Generative AI": "#8e44ad",
   TryHackMe: "#88cc14",
+  Nmap: "#2e5eaa",
+  Wireshark: "#1679a7",
+  Metasploit: "#2596cd",
+  "Burp Suite": "#ff6633",
+  Nessus: "#7b5166",
+  Splunk: "#1a5f9a",
+  "CrowdStrike Falcon": "#f0a500",
+  Snort: "#2e7d32",
+  Snyk: "#4c5ef7",
 };
 
 const TOOL_ICON_URLS: Record<string, string> = {
@@ -82,20 +91,21 @@ const TOOL_ICON_URLS: Record<string, string> = {
   "Google Ads": "https://cdn.simpleicons.org/googleads/4285f4",
   Supabase: "https://cdn.simpleicons.org/supabase/3ecf8e",
   PostgreSQL: "https://cdn.simpleicons.org/postgresql/336791",
-};
-
-const TOOL_ICON_FILTERS: Record<string, string> = {
-  AWS: "invert(54%) sepia(68%) saturate(7048%) hue-rotate(3deg) brightness(100%) contrast(103%)",
-  "SQL Server": "invert(28%) sepia(91%) saturate(1461%) hue-rotate(330deg) brightness(101%) contrast(101%)",
-  Supabase: "invert(61%) sepia(57%) saturate(945%) hue-rotate(110deg) brightness(102%) contrast(102%)",
-  PostgreSQL: "invert(43%) sepia(50%) saturate(1478%) hue-rotate(212deg) brightness(93%) contrast(104%)",
+  Nmap: "https://cdn.simpleicons.org/nmap/2e5eaa",
+  Wireshark: "https://cdn.simpleicons.org/wireshark/1679a7",
+  Metasploit: "https://cdn.simpleicons.org/metasploit/2596cd",
+  "Burp Suite": "https://cdn.simpleicons.org/burpsuite/ff6633",
+  Nessus: "https://cdn.simpleicons.org/nessus/7b5166",
+  Splunk: "https://cdn.simpleicons.org/splunk/1a5f9a",
+  "CrowdStrike Falcon": "https://cdn.simpleicons.org/crowdstrike/f0a500",
+  Snort: "https://cdn.simpleicons.org/snort/2e7d32",
+  Snyk: "https://cdn.simpleicons.org/snyk/4c5ef7",
 };
 
 export function ToolBadge({ label, iconUrl }: { label: string; iconUrl?: string }) {
   const Icon = TOOL_ICONS[label] ?? Code2;
   const color = TOOL_COLORS[label] ?? "var(--accent)";
   const resolvedIconUrl = iconUrl ?? TOOL_ICON_URLS[label];
-  const iconFilter = TOOL_ICON_FILTERS[label];
 
   return (
     <span className="tool-badge">
@@ -105,7 +115,6 @@ export function ToolBadge({ label, iconUrl }: { label: string; iconUrl?: string 
           alt=""
           aria-hidden="true"
           className="tool-badge-image"
-          style={iconFilter ? { filter: iconFilter } : undefined}
         />
       ) : (
         <Icon size={14} aria-hidden="true" style={{ color }} />
