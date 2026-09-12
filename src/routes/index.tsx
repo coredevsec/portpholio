@@ -161,13 +161,13 @@ function DocButton({
   }
 
   return (
-    <Link
-      to={href}
+    <a
+      href={href}
       className="inline-flex items-center gap-2 rounded-sm border border-accent px-3 py-1.5 text-sm text-accent transition-opacity hover:opacity-75"
     >
       <Icon size={15} aria-hidden="true" />
       {label}
-    </Link>
+    </a>
   );
 }
 

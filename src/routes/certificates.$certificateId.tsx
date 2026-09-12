@@ -76,8 +76,8 @@ function CertificatePage() {
                 ) : null}
               </div>
 
-              <div className="certificate-strip -mx-1 overflow-x-auto pb-2 sm:-mx-2">
-                <div className="flex gap-4">
+              <div className="certificate-strip vertical-mask">
+                <div className="certificate-stack">
                   {images.map((image, index) => (
                     <figure
                       key={image}

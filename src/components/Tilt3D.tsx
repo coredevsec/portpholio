@@ -36,14 +36,8 @@ export function Tilt3D({
     <div className="scene-3d">
       <div
         ref={ref}
-        onPointerDown={(event) => event.currentTarget.setPointerCapture(event.pointerId)}
         onPointerMove={handleMove}
-        onPointerUp={(event) => {
-          setTransform("");
-          if (event.currentTarget.hasPointerCapture(event.pointerId)) {
-            event.currentTarget.releasePointerCapture(event.pointerId);
-          }
-        }}
+        onPointerLeave={() => setTransform("")}
         onPointerCancel={() => setTransform("")}
         style={{ transform: transform || undefined }}
         className={`card-3d touch-pan-y ${className}`}
