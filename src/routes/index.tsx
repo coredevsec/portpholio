@@ -240,6 +240,7 @@ function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const headerRef = useRef<HTMLElement | null>(null);
   const searchItems = [
     ...projects.map((project) => ({ label: project.name, type: "Project", href: "#work" })),
     ...products.map((product) => ({ label: product.name, type: "Product", href: "#marketplace" })),
@@ -249,6 +250,34 @@ function Portfolio() {
   const searchMatches = searchQuery.trim()
     ? searchItems.filter((item) => item.label.toLowerCase().includes(searchQuery.toLowerCase())).slice(0, 6)
     : [];
+
+  useEffect(() => {
+    const handlePointerDown = (event: MouseEvent) => {
+      if (!headerRef.current || headerRef.current.contains(event.target as Node)) {
+        return;
+      }
+
+      setMenuOpen(false);
+      setSearchOpen(false);
+      setSearchQuery("");
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        setSearchOpen(false);
+        setSearchQuery("");
+      }
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -260,7 +289,7 @@ function Portfolio() {
       </a>
 
       <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-4 sm:px-6 md:px-10">
-        <header className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/70 px-4 py-3 shadow-sm shadow-foreground/5 backdrop-blur-xl sm:px-6 md:px-10">
+        <header ref={headerRef} className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/70 px-4 py-3 shadow-sm shadow-foreground/5 backdrop-blur-xl sm:px-6 md:px-10">
           <div className="mx-auto flex w-full max-w-4xl flex-wrap items-center justify-between gap-3">
             <Link to="/logo" aria-label={`View ${profile.name} logo`} className="shrink-0">
               <img

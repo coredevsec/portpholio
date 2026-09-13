@@ -187,6 +187,7 @@ export const skillGroups: { label: string; items: Skill[] }[] = [
       { label: "Figma", href: "https://www.figma.com/", color: "#f24e1e", iconUrl: "https://cdn.simpleicons.org/figma/f24e1e" },
       { label: "Beautiful Soup", href: "https://www.crummy.com/software/BeautifulSoup/", color: "#4b8bbe" },
       { label: "Git", href: "https://git-scm.com/", color: "#f05032" },
+      { label: "GitHub", href: "https://github.com/forworldsec", color: "#181717", iconUrl: "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/github.svg" },
     ],
   },
   {
