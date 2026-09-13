@@ -125,7 +125,7 @@ export function ToolBadge({ label, iconUrl }: { label: string; iconUrl?: string 
   const [iconMarkup, setIconMarkup] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!resolvedIconUrl || !resolvedIconUrl.endsWith(".svg")) {
+    if (!resolvedIconUrl || iconUrl || !resolvedIconUrl.endsWith(".svg")) {
       setIconMarkup(null);
       return;
     }
