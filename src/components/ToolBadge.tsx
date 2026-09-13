@@ -48,6 +48,7 @@ const TOOL_COLORS: Record<string, string> = {
   "Google Ads": "#4285f4",
   HubSpot: "#ff7a59",
   Excel: "#217346",
+  Microsoft: "#5e5e5e",
   Supabase: "#3ecf8e",
   "Next.js": "#111111",
   React: "#61dafb",
@@ -91,6 +92,7 @@ const TOOL_ICON_URLS: Record<string, string> = {
   "Google Ads": "https://cdn.simpleicons.org/googleads/4285f4",
   HubSpot: "https://cdn.simpleicons.org/hubspot/ff7a59",
   Excel: "https://cdn.simpleicons.org/microsoftexcel/217346",
+  Microsoft: "https://cdn.simpleicons.org/microsoft/5e5e5e",
   Supabase: "https://cdn.simpleicons.org/supabase/3ecf8e",
   PostgreSQL: "https://cdn.simpleicons.org/postgresql/336791",
   Nmap: "https://cdn.simpleicons.org/nmap/2e5eaa",
@@ -102,7 +104,7 @@ const TOOL_ICON_URLS: Record<string, string> = {
   "CrowdStrike Falcon": "https://cdn.simpleicons.org/crowdstrike/f0a500",
   Snort: "https://cdn.simpleicons.org/snort/2e7d32",
   Snyk: "https://cdn.simpleicons.org/snyk/4c5ef7",
-  "Beautiful Soup": "https://cdn.simpleicons.org/beautifulsoup/4b8bbe",
+  "Beautiful Soup": "https://www.crummy.com/software/BeautifulSoup/10.1.jpg",
 };
 
 export function ToolBadge({ label, iconUrl }: { label: string; iconUrl?: string }) {

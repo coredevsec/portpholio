@@ -299,7 +299,14 @@ function Portfolio() {
                 {searchOpen && searchMatches.length > 0 ? (
                   <div className="navbar-search-results">
                     {searchMatches.map((match) => (
-                      <a key={`${match.type}-${match.label}`} href={match.href} onClick={() => setSearchQuery("")}>
+                      <a
+                        key={`${match.type}-${match.label}`}
+                        href={match.href}
+                        onClick={() => {
+                          setSearchQuery("");
+                          setSearchOpen(false);
+                        }}
+                      >
                         <span>{match.label}</span>
                         <small>{match.type}</small>
                       </a>
