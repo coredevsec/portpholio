@@ -180,7 +180,7 @@ export const skillGroups: { label: string; items: Skill[] }[] = [
       { label: "Cloudflare", href: "https://www.cloudflare.com/", color: "#f38020" },
       { label: "TypeScript", href: "https://www.typescriptlang.org/", color: "#3178c6" },
       { label: "HTML5", href: "https://developer.mozilla.org/en-US/docs/Web/HTML", color: "#e34f26" },
-      { label: "Figma", href: "https://www.figma.com/", color: "#f24e1e" },
+      { label: "Figma", href: "https://www.figma.com/", color: "#f24e1e", iconUrl: "/icons/figma.svg" },
       { label: "Beautiful Soup", href: "https://www.crummy.com/software/BeautifulSoup/", color: "#4b8bbe" },
       { label: "Git", href: "https://git-scm.com/", color: "#f05032" },
       { label: "GitHub", href: "https://github.com/forworldsec", color: "#181717" },
