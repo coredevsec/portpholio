@@ -149,7 +149,7 @@ export const skillGroups: { label: string; items: Skill[] }[] = [
   {
     label: "Engineering",
     items: [
-      { label: "Java", href: "https://dev.java/", color: "#e76f00", iconUrl: "/icons/openjdk.svg" },
+      { label: "Java", href: "https://dev.java/", color: "#e76f00", iconUrl: "/icons/java-logo-vector.png" },
       { label: "Python", href: "https://www.python.org/", color: "#3776ab" },
       { label: "JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", color: "#d6a900" },
       { label: "Kali Linux", href: "https://www.kali.org/", color: "#557c94" },
