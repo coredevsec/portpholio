@@ -149,11 +149,11 @@ export const skillGroups: { label: string; items: Skill[] }[] = [
   {
     label: "Engineering",
     items: [
-      { label: "Java", href: "https://dev.java/", color: "#e76f00" },
+      { label: "Java", href: "https://dev.java/", color: "#e76f00", iconUrl: "/icons/openjdk.svg" },
       { label: "Python", href: "https://www.python.org/", color: "#3776ab" },
       { label: "JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", color: "#d6a900" },
       { label: "Kali Linux", href: "https://www.kali.org/", color: "#557c94" },
-      { label: "Nmap", href: "https://nmap.org/", color: "#2e5eaa" },
+      { label: "Nmap", href: "https://nmap.org/", color: "#2e5eaa", iconUrl: "/icons/nmap.png" },
       { label: "Wireshark", href: "https://www.wireshark.org/", color: "#1679a7" },
       { label: "Metasploit", href: "https://www.metasploit.com/", color: "#2596cd" },
       { label: "Burp Suite", href: "https://portswigger.net/burp", color: "#ff6633" },
@@ -172,7 +172,7 @@ export const skillGroups: { label: string; items: Skill[] }[] = [
       { label: "Google Ads", href: "https://ads.google.com/", color: "#4285f4" },
       { label: "HubSpot", href: "https://www.hubspot.com/", color: "#ff7a59" },
       { label: "Excel", href: "https://www.microsoft.com/en-us/microsoft-365/excel", color: "#217346" },
-      { label: "Microsoft", href: "https://www.microsoft.com/", color: "#5e5e5e" },
+      { label: "Microsoft", href: "https://www.microsoft.com/", color: "#5e5e5e", iconUrl: "/icons/microsoft.svg" },
       { label: "Supabase", href: "https://supabase.com/", color: "#3ecf8e" },
       { label: "Next.js", href: "https://nextjs.org/", color: "#111111" },
       { label: "React", href: "https://react.dev/", color: "#61dafb" },

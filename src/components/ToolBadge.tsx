@@ -8,6 +8,7 @@ import {
   Server,
   Terminal,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const TOOL_ICONS: Record<string, typeof Code2> = {
   Java: Code2,
@@ -54,6 +55,13 @@ const TOOL_COLORS: Record<string, string> = {
   "Next.js": "#111111",
   React: "#61dafb",
   Django: "#092e20",
+  Cloudflare: "#f38020",
+  TypeScript: "#3178c6",
+  CSS3: "#1572b6",
+  HTML5: "#e34f26",
+  Figma: "#f24e1e",
+  Git: "#f05032",
+  PostgreSQL: "#336791",
   KYC: "#00a6a6",
   Cybersecurity: "#7b61ff",
   "Data integrity": "#2a9d8f",
@@ -84,7 +92,7 @@ const TOOL_ICON_URLS: Record<string, string> = {
   Networking: "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/cisco.svg",
   "IntelliJ IDEA": "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/intellijidea.svg",
   Replit: "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/replit.svg",
-  AWS: "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/amazonwebservices.svg",
+  AWS: "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/amazonaws.svg",
   React: "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/react.svg",
   "Next.js": "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/nextdotjs.svg",
   Django: "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/django.svg",
@@ -104,7 +112,7 @@ const TOOL_ICON_URLS: Record<string, string> = {
   Nessus: "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/nessus.svg",
   Splunk: "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/splunk.svg",
   "CrowdStrike Falcon": "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/crowdstrike.svg",
-  Snort: "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/snort.svg",
+  Snort: "https://simpleicons.org/icons/snort.svg",
   Snyk: "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/snyk.svg",
   GitHub: "https://cdn.jsdelivr.net/npm/simple-icons@11/icons/github.svg",
   "Beautiful Soup": "https://www.crummy.com/software/BeautifulSoup/10.1.jpg",
@@ -114,10 +122,55 @@ export function ToolBadge({ label, iconUrl }: { label: string; iconUrl?: string 
   const Icon = TOOL_ICONS[label] ?? Code2;
   const color = TOOL_COLORS[label] ?? "var(--accent)";
   const resolvedIconUrl = iconUrl ?? TOOL_ICON_URLS[label];
+  const [iconMarkup, setIconMarkup] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!resolvedIconUrl || !resolvedIconUrl.endsWith(".svg")) {
+      setIconMarkup(null);
+      return;
+    }
+
+    let isActive = true;
+
+    const loadSvg = async () => {
+      try {
+        const response = await fetch(resolvedIconUrl);
+        if (!response.ok) {
+          throw new Error(`Failed to fetch icon: ${response.status}`);
+        }
+
+        const rawSvg = await response.text();
+        const recoloredSvg = rawSvg.replace(
+          /<svg\b([^>]*)>/i,
+          `<svg$1 fill="${color}" style="color:${color}">`,
+        );
+
+        if (isActive) {
+          setIconMarkup(recoloredSvg);
+        }
+      } catch {
+        if (isActive) {
+          setIconMarkup(null);
+        }
+      }
+    };
+
+    void loadSvg();
+
+    return () => {
+      isActive = false;
+    };
+  }, [resolvedIconUrl, color]);
 
   return (
     <span className="tool-badge">
-      {resolvedIconUrl ? (
+      {iconMarkup ? (
+        <span
+          className="tool-badge-icon"
+          aria-hidden="true"
+          dangerouslySetInnerHTML={{ __html: iconMarkup }}
+        />
+      ) : resolvedIconUrl ? (
         <img
           src={resolvedIconUrl}
           alt=""

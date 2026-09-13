@@ -782,6 +782,20 @@
   object-fit: contain;
 }
 
+.tool-badge-icon {
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-badge-icon svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+
 .stat-value {
   color: var(--accent);
   font-size: clamp(2rem, 6vw, 3.5rem);
