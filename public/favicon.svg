@@ -1,3 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <text x="32" y="50" text-anchor="middle" font-size="52">🤍</text>
+  <defs>
+    <filter id="sun-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur" />
+      <feFlood flood-color="#FFC928" flood-opacity="0.9" result="glow-color" />
+      <feComposite in="glow-color" in2="blur" operator="in" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <path
+    fill="#FFDF45"
+    filter="url(#sun-glow)"
+    d="M32 56C28 52 7 35 7 20 7 11 13 6 21 6c5 0 9 3 11 8 2-5 6-8 11-8 8 0 14 5 14 14 0 15-21 32-25 36Z"
+  />
 </svg>
