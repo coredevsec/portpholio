@@ -1,18 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <filter id="sun-glow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur" />
-      <feFlood flood-color="#FFB900" flood-opacity="1" result="glow-color" />
-      <feComposite in="glow-color" in2="blur" operator="in" result="glow" />
-      <feMerge>
-        <feMergeNode in="glow" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
+    <mask id="apple-bite">
+      <rect width="64" height="64" fill="#fff" />
+      <circle cx="57" cy="31" r="6" fill="#000" />
+    </mask>
   </defs>
   <path
-    fill="#FFE33D"
-    filter="url(#sun-glow)"
-    d="M32 56C28 52 7 35 7 20 7 11 13 6 21 6c5 0 9 3 11 8 2-5 6-8 11-8 8 0 14 5 14 14 0 15-21 32-25 36Z"
+    fill="#171717"
+    mask="url(#apple-bite)"
+    d="M32 18c-4-3-10-4-16-1C7 21 5 32 9 43c3 10 10 18 16 16 3-1 5-3 8-2 7 3 14-2 19-11 5-9 7-18 1-23-5-4-12-2-17-3-2 0-3-1-4-2Z"
+  />
+  <path
+    fill="#171717"
+    d="M38 5c1 7-3 12-10 12 0-6 4-11 10-12Z"
   />
 </svg>
