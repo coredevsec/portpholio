@@ -9,7 +9,7 @@ export const Route = createFileRoute("/certificates/$certificateId")({
     const certificate = certificates.find((item) => item.slug === params.certificateId);
     return {
       meta: [
-        { title: certificate ? `${certificate.name} — ${profile.name}` : `Certificate — ${profile.name}` },
+        { title: certificate ? `${certificate.name} | ${profile.name}` : `Certificate | ${profile.name}` },
         {
           name: "description",
           content: certificate

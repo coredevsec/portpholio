@@ -29,7 +29,7 @@ export function MediaFrame({
         {media?.embed ? (
           <iframe
             src={media.embed}
-            title={`${label} — video`}
+            title={`${label} | video`}
             loading="lazy"
             allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
             allowFullScreen
@@ -40,7 +40,7 @@ export function MediaFrame({
             controls
             preload="none"
             poster={media.image}
-            aria-label={`${label} — video walkthrough`}
+            aria-label={`${label} | video walkthrough`}
             className="h-full w-full object-cover"
           >
             <source src={media.video} />

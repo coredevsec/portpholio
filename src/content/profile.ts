@@ -30,7 +30,7 @@ export const experience: Role[] = [
   {
     company: "Pi Network",
     title: "KYC Agent (Freelance)",
-    period: "Jul 2024 — Aug 2026",
+    period: "Jul 2024 | Aug 2026",
     location: "Remote",
     summary:
       "Reviewed identity verification submissions for a global crypto community as part of a distributed KYC validator team.",
@@ -70,7 +70,7 @@ export const projects: Project[] = [
   {
     name: "KYC verification workflow",
     slug: "kyc-verification-workflow",
-    year: "2024 — 2026",
+    year: "2024 | 2026",
     blurb:
       "Hands-on identity verification at volume: document checks, fraud flags and consistent decision records for a remote validator team.",
     details: {
@@ -282,7 +282,7 @@ export const documents = {
 
 export type Social = {
   label: string;
-  /** Leave empty until you have the link — the icon renders disabled. */
+  /** Leave empty until you have the link | the icon renders disabled. */
   url: string;
   /** CSS variable holding the brand colour. */
   color: string;
@@ -302,7 +302,7 @@ export const education: { school: string; credential: string; period: string; hr
   {
     school: "University of the People",
     credential: "Bachelor of Science, Computer Science",
-    period: "Sep 2025 — Feb 2028",
+    period: "Sep 2025 | Feb 2028",
     href: "",
   },
   {

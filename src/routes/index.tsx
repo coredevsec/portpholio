@@ -617,7 +617,7 @@ function Portfolio() {
                       “{reference.quote}”
                     </p>
                     <footer className="mt-3 text-sm text-muted-foreground">
-                      {reference.author} — {reference.role}
+                      {reference.author} | {reference.role}
                     </footer>
                   </blockquote>
                 ))}

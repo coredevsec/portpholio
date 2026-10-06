@@ -11,7 +11,7 @@ export const Route = createFileRoute("/projects/$projectId")({
     const project = projects.find((item) => item.slug === params.projectId);
     return {
       meta: [
-        { title: project ? `${project.name} — ${profile.name}` : `Project — ${profile.name}` },
+        { title: project ? `${project.name} | ${profile.name}` : `Project | ${profile.name}` },
         {
           name: "description",
           content: project?.blurb ?? `Project details for ${profile.name}.`,
