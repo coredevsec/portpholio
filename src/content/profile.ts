@@ -8,7 +8,7 @@ export const profile = {
     "Computer Science Student · IT Support · Java, Python, Linux & Networking · Aspiring Software Engineer",
   location: "Lagos State, Nigeria",
   about:
-    "I work at the intersection of engineering principles, cybersecurity and digital operations. Day to day that means Know Your Customer (KYC) verification work, applying secure practices to protect data integrity, and using tools like JavaScript, SQL Server and Excel to make compliance checks faster and more precise. I am currently studying Computer Science at the University of the People while building depth in Java, Python, Linux and networking, and I am open to IT support and software engineering roles.",
+    "I work at the intersection of engineering principles, cybersecurity and digital operations. Day to day that means Know Your Customer (KYC) verification work, applying secure practices to protect data integrity, and using tools like JavaScript, SQL Server and Excel to make compliance checks faster and more precise. I bring a strong work ethic, a fast-learning mindset, and a commitment to doing the work carefully and consistently. I am open to IT support and software engineering roles where I can keep learning, solve real problems, and contribute with discipline and focus.",
   links: {
     linkedin: "https://www.linkedin.com/in/ogundana-korede/",
     email: "",
