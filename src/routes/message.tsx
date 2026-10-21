@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowUp } from "lucide-react";
 
 import { ContactForm } from "@/components/ContactForm";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { profile } from "@/content/profile";
 
 export const Route = createFileRoute("/message")({
@@ -45,7 +44,7 @@ function MessagePage() {
         Skip to content
       </a>
 
-      <div className="mx-auto w-full max-w-2xl px-6 md:px-10">
+      <div className="mx-auto w-full max-w-2xl px-6 pt-24 md:px-10">
         <header className="flex items-center justify-between py-8">
           <Link
             to="/"
@@ -54,7 +53,6 @@ function MessagePage() {
             <ArrowLeft size={16} aria-hidden="true" />
             Back to portfolio
           </Link>
-          <ThemeToggle />
         </header>
 
         <main id="main" className="py-12 md:py-20">

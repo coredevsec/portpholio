@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 
 import { MediaFrame } from "@/components/MediaFrame";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { ToolBadge } from "@/components/ToolBadge";
 import { projects, profile } from "@/content/profile";
 
@@ -35,7 +34,7 @@ function ProjectPage() {
         Skip to content
       </a>
 
-      <div className="mx-auto w-full max-w-5xl px-6 md:px-10">
+      <div className="mx-auto w-full max-w-5xl px-6 pt-24 md:px-10">
         <header className="flex items-center justify-between py-8">
           <Link
             to="/"
@@ -45,7 +44,6 @@ function ProjectPage() {
             <ArrowLeft size={16} aria-hidden="true" />
             Back to projects
           </Link>
-          <ThemeToggle />
         </header>
 
         <main id="main" className="py-8 md:py-16">

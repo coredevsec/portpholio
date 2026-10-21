@@ -5,10 +5,10 @@
 export const profile = {
   name: "Korede Ogundana",
   headline:
-    "Computer Science Student · IT Support · Java, Python, Linux & Networking · Aspiring Software Engineer",
+    "Product Engineer · Built Orator - AI speech coach · TypeScript, Next.js, Flutterwave · IT Support · Java · Python · Linux & Networking · Aspiring Software Engineer",
   location: "Lagos State, Nigeria",
   about:
-    "I work at the intersection of engineering principles, cybersecurity and digital operations. Day to day that means Know Your Customer (KYC) verification work, applying secure practices to protect data integrity, and using tools like JavaScript, SQL Server and Excel to make compliance checks faster and more precise. I bring a strong work ethic, a fast-learning mindset, and a commitment to doing the work carefully and consistently. I am open to IT support and software engineering roles where I can keep learning, solve real problems, and contribute with discipline and focus.",
+    "I’m a Product Engineer building AI-powered tools that solve real problems and deliver practical value. I recently built Orator, a public-speaking practice platform that listens as you read and follows your speech in real time. With a background in IT support, Linux, networking, and troubleshooting, I’m a hardworking fast learner who takes ownership and ships thoughtful, useful products. I’m open to remote internships in product engineering, AI, and full-stack development, and eager to contribute and grow with a team.",
   links: {
     linkedin: "https://www.linkedin.com/in/ogundana-korede/",
     email: "",
@@ -47,6 +47,7 @@ import type { MediaItem } from "@/components/MediaFrame";
 import kycCover from "@/assets/project-kyc.jpg";
 import securityCover from "@/assets/sec-one.png";
 import mlCover from "@/assets/project-ml.jpg";
+import oratorCover from "@/assets/orator3.jpeg";
 
 export type Project = {
   name: string;
@@ -67,6 +68,35 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    name: "Orator | Voice Teleprompter",
+    slug: "orator-voice-teleprompter",
+    year: "2026",
+    blurb:
+      "A voice-aware teleprompter for public-speaking practice, with real-time speech tracking, pacing feedback, and a personal reading library.",
+    details: {
+      overview:
+        "Building in public. Orator is a public-speaking practice platform that listens as you read and follows your speech in real time. Live demo: https://speakorator.vercel.app.",
+      approach: [
+        "Built real-time word tracking with the Web Speech API, interim speech results, and fuzzy matching, with pacing feedback as you read.",
+        "Added voice typing and dictation, plus a personal library that stores passages, word counts, and dates.",
+        "Enabled multilingual voice support for English (US, UK, Australia, Canada, India), Spanish, French, German, and Portuguese.",
+        "Created customizable reading colors, Canvas-based highlighting with live preview, and sentence focus mode.",
+        "Integrated memberships and premium features with Flutterwave; payments are currently tested in Test Mode.",
+      ],
+      focus:
+        "Built with TypeScript (92.2%), Next.js, Supabase, PostgreSQL, Tailwind CSS, the Web Speech API, Flutterwave, and Vercel CI/CD. Building in public and open to remote Product or Frontend Engineering internships. I ship fast, learn in public, and bring a strong work ethic.",
+    },
+    tools: ["TypeScript", "Next.js", "Supabase", "PostgreSQL", "Tailwind CSS", "Web Speech API", "Flutterwave"],
+    tags: ["Product engineering", "Speech AI", "Building in public"],
+    url: "https://github.com/coredevsec/speakorator",
+    urlLabel: "View source on GitHub",
+    media: {
+      image: oratorCover,
+      alt: "Orator voice teleprompter interface",
+      caption: "A public-speaking practice platform with live speech tracking, pacing feedback, and voice-powered tools.",
+    },
+  },
   {
     name: "KYC verification workflow",
     slug: "kyc-verification-workflow",
