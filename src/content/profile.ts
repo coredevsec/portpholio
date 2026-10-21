@@ -61,6 +61,7 @@ export type Project = {
   };
   tools: string[];
   tags: string[];
+  demoUrl?: string;
   url?: string;
   /** Label for the external link, used as accessible text. */
   urlLabel?: string;
@@ -89,6 +90,7 @@ export const projects: Project[] = [
     },
     tools: ["TypeScript", "Next.js", "Supabase", "PostgreSQL", "Tailwind CSS", "Web Speech API", "Flutterwave"],
     tags: ["Product engineering", "Speech AI", "Building in public"],
+    demoUrl: "https://speakorator.vercel.app",
     url: "https://github.com/coredevsec/speakorator",
     urlLabel: "View source on GitHub",
     media: {

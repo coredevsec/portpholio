@@ -95,17 +95,33 @@ function ProjectPage() {
                 </ul>
               </section>
 
-              {project.url ? (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-10 inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-2.5 text-sm text-primary-foreground transition-opacity hover:opacity-90"
-                >
-                  <ExternalLink size={15} aria-hidden="true" />
-                  {project.urlLabel ?? "View project"}
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
+              {project.demoUrl || project.url ? (
+                <div className="mt-10 flex flex-wrap gap-3">
+                  {project.demoUrl ? (
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex min-h-11 items-center gap-2 rounded-sm bg-primary px-5 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
+                      <ExternalLink size={15} aria-hidden="true" />
+                      Visit live site
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  ) : null}
+                  {project.url ? (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex min-h-11 items-center gap-2 rounded-sm border border-border bg-card px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
+                      <ExternalLink size={15} aria-hidden="true" />
+                      {project.urlLabel ?? "View project"}
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  ) : null}
+                </div>
               ) : null}
             </article>
           ) : (
