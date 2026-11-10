@@ -274,33 +274,36 @@ function Portfolio() {
                   <div className="hero-robot-card">
                     <HeroRobot3D />
                   </div>
-                  <div className="hero-actions mt-3 flex flex-wrap items-center justify-end gap-1.5 sm:gap-3">
-                    <a
-                      href={profile.links.linkedin}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-sm bg-primary px-2.5 py-1.5 text-[9px] text-primary-foreground transition-opacity hover:opacity-90 sm:px-4 sm:py-2 sm:text-xs"
-                    >
-                      LinkedIn profile
-                      <span className="sr-only"> (opens in a new tab)</span>
-                    </a>
-                    <a
-                      href="#credentials"
-                      className="inline-flex items-center justify-center gap-1 rounded-sm border border-border px-2.5 py-1.5 text-[9px] transition-colors hover:border-accent hover:text-accent sm:gap-2 sm:px-3 sm:py-2 sm:text-xs"
-                    >
-                      <FileText size={15} aria-hidden="true" />
-                      View certificates
-                    </a>
-                    <DocButton href={documents.cv} label="Download CV" icon={Download} />
-                    <a
-                      href="#work"
-                      className="inline-flex items-center border-b border-accent pb-0.5 text-[9px] text-accent transition-opacity hover:opacity-70 sm:pb-1 sm:text-xs"
-                    >
-                      See selected work
-                    </a>
-                  </div>
                 </div>
               </div>
+            </div>
+
+            <div className="hero-actions mt-3 flex w-full items-center justify-between gap-1.5 sm:gap-2">
+              <a
+                href={profile.links.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex flex-1 items-center justify-center rounded-sm bg-primary px-2 py-1.5 text-[7px] leading-none text-primary-foreground transition-opacity hover:opacity-90 sm:px-3 sm:py-2 sm:text-[10px]"
+              >
+                LinkedIn profile
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+              <a
+                href="#credentials"
+                className="inline-flex flex-1 items-center justify-center gap-1 rounded-sm border border-border px-2 py-1.5 text-[7px] leading-none transition-colors hover:border-accent hover:text-accent sm:gap-1.5 sm:px-3 sm:py-2 sm:text-[10px]"
+              >
+                <FileText size={15} aria-hidden="true" />
+                View certificates
+              </a>
+              <div className="flex-1">
+                <DocButton href={documents.cv} label="Download CV" icon={Download} />
+              </div>
+              <a
+                href="#work"
+                className="inline-flex flex-1 items-center justify-center border-b border-accent pb-0.5 text-[7px] leading-none text-accent transition-opacity hover:opacity-70 sm:pb-1 sm:text-[10px]"
+              >
+                See selected work
+              </a>
             </div>
           </div>
 
