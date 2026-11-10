@@ -46,7 +46,7 @@ function LogoPage() {
 
           <figure className="rounded-lg border border-border bg-card p-6 shadow-sm md:p-12">
             <img
-              src="/krd.png"
+              src="/krd.jpeg"
               alt={`${profile.name} logo`}
               className="logo-pop mx-auto max-h-[70vh] w-full max-w-xl object-contain"
             />

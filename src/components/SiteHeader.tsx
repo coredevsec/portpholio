@@ -13,7 +13,6 @@ const navItems = [
   { href: "/#skills", label: "Skills" },
   { href: "/#credentials", label: "Credentials" },
   { href: "/#contact", label: "Contact" },
-  { href: "/#message", label: "Message" },
   { href: "/#marketplace", label: "Shop" },
 ];
 
@@ -69,7 +68,7 @@ export function SiteHeader() {
       <div className="mx-auto flex w-full max-w-4xl flex-wrap items-center justify-between gap-3">
         <Link to="/logo" aria-label={`View ${profile.name} logo`} className="shrink-0">
           <img
-            src="/krd.png"
+            src="/krd.jpeg"
             alt={`${profile.name} logo`}
             className="h-10 w-auto max-w-[7rem] object-contain sm:h-12 sm:max-w-[8rem]"
           />

@@ -221,6 +221,25 @@ function Section({
 }
 
 function Portfolio() {
+  const [messageOpen, setMessageOpen] = useState(false);
+
+  useEffect(() => {
+    const shouldOpenFromHash = window.location.hash === "#message";
+    const shouldOpenFromIntent = window.sessionStorage.getItem("purchase-intent") === "true";
+
+    if (shouldOpenFromHash || shouldOpenFromIntent) {
+      setMessageOpen(true);
+      window.sessionStorage.removeItem("purchase-intent");
+    }
+  }, []);
+
+  const openMessage = () => {
+    setMessageOpen(true);
+    window.requestAnimationFrame(() => {
+      document.getElementById("message")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
+
   return (
     <div className="flex flex-col">
       <a
@@ -250,19 +269,19 @@ function Portfolio() {
                   <p className="mt-2 max-w-xl text-[11px] leading-snug text-muted-foreground sm:mt-4 sm:text-lg md:mt-6 md:text-xl">
                     {profile.headline}
                   </p>
-                  <div className="hero-actions mt-3 flex flex-wrap items-center gap-1.5 sm:mt-8 sm:gap-4">
+                  <div className="hero-actions mt-3 flex flex-wrap items-center gap-1.5 sm:mt-8 sm:gap-3">
                     <a
                       href={profile.links.linkedin}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-sm bg-primary px-2 py-1.5 text-[10px] text-primary-foreground transition-opacity hover:opacity-90 sm:px-5 sm:py-2.5 sm:text-sm"
+                      className="inline-flex items-center justify-center rounded-sm bg-primary px-2.5 py-1.5 text-[9px] text-primary-foreground transition-opacity hover:opacity-90 sm:px-4 sm:py-2 sm:text-xs"
                     >
                       LinkedIn profile
                       <span className="sr-only"> (opens in a new tab)</span>
                     </a>
                     <a
                       href="#credentials"
-                      className="inline-flex items-center justify-center gap-1 rounded-sm border border-border px-2 py-1.5 text-[10px] transition-colors hover:border-accent hover:text-accent sm:gap-2 sm:px-3 sm:py-2 sm:text-sm"
+                      className="inline-flex items-center justify-center gap-1 rounded-sm border border-border px-2.5 py-1.5 text-[9px] transition-colors hover:border-accent hover:text-accent sm:gap-2 sm:px-3 sm:py-2 sm:text-xs"
                     >
                       <FileText size={15} aria-hidden="true" />
                       View certificates
@@ -270,7 +289,7 @@ function Portfolio() {
                     <DocButton href={documents.cv} label="Download CV" icon={Download} />
                     <a
                       href="#work"
-                      className="inline-flex items-center border-b border-accent pb-0.5 text-[10px] text-accent transition-opacity hover:opacity-70 sm:pb-1 sm:text-sm"
+                      className="inline-flex items-center border-b border-accent pb-0.5 text-[9px] text-accent transition-opacity hover:opacity-70 sm:pb-1 sm:text-xs"
                     >
                       See selected work
                     </a>
@@ -334,13 +353,14 @@ function Portfolio() {
           </Section>
 
           <div className="flex justify-center pb-4">
-            <a
-              href="#message"
+            <button
+              type="button"
+              onClick={openMessage}
               className="hire-button inline-flex items-center gap-2 rounded-sm border border-border bg-transparent px-3 py-1.5 text-sm text-foreground transition-colors hover:border-accent hover:text-accent active:bg-primary active:text-primary-foreground"
             >
               <BriefcaseBusiness size={16} aria-hidden="true" />
               Hire me
-            </a>
+            </button>
           </div>
 
           <Section id="marketplace" label="Marketplace" title="Ready-to-use digital products">
@@ -353,7 +373,13 @@ function Portfolio() {
                   </div>
                   <div className="flex shrink-0 items-center gap-3">
                     <strong className="text-accent">{product.price}</strong>
-                    <Link to="/payment" className="buy-button inline-flex items-center gap-1 rounded-sm border border-border bg-transparent px-3 py-1.5 text-sm text-foreground transition-colors hover:border-accent hover:text-accent active:bg-primary active:text-primary-foreground">
+                    <Link
+                      to="/payment"
+                      onClick={() => {
+                        window.sessionStorage.setItem("purchase-intent", "true");
+                      }}
+                      className="buy-button inline-flex items-center gap-1 rounded-sm border border-border bg-transparent px-3 py-1.5 text-sm text-foreground transition-colors hover:border-accent hover:text-accent active:bg-primary active:text-primary-foreground"
+                    >
                       <ShoppingBag size={14} aria-hidden="true" /> Buy now
                     </Link>
                   </div>
@@ -367,11 +393,11 @@ function Portfolio() {
               {experience.map((role) => (
                 <Tilt3D
                   key={`${role.company}-${role.title}`}
-                  className="rounded-lg border border-border bg-card p-6 md:p-8"
+                  className="rounded-lg border border-border bg-card p-6 text-center md:p-8"
                   intensity={4}
                 >
-                  <article className="layer-3d">
-                    <div className="flex flex-wrap items-baseline justify-between gap-3">
+                  <article className="layer-3d text-center">
+                    <div className="flex flex-wrap items-center justify-center gap-3">
                       <h3 className="text-lg font-medium">
                         {role.title} · {role.company}
                       </h3>
@@ -381,7 +407,7 @@ function Portfolio() {
                       <p className="mt-1 text-sm text-muted-foreground">{role.location}</p>
                     ) : null}
                     <p className="mt-3 max-w-2xl text-muted-foreground">{role.summary}</p>
-                    <ul className="mt-3 space-y-2">
+                    <ul className="mt-3 space-y-2 text-center">
                       {role.highlights.map((highlight) => (
                         <li
                           key={highlight}
@@ -431,30 +457,32 @@ function Portfolio() {
 
           <Section id="credentials" label="Credentials" title="Education & certifications">
             <div className="grid gap-6 sm:grid-cols-2">
-              <Tilt3D className="rounded-lg border border-border bg-card p-6" intensity={4}>
-                <div className="layer-3d">
+              <Tilt3D className="rounded-lg border border-border bg-card p-6 text-center" intensity={4}>
+                <div className="layer-3d text-center">
                   <p className="eyebrow mb-4">Education</p>
                   <div className="bounded-list h-64 space-y-5">
                     {education.map((item) => (
-                      <div key={item.school} className="space-y-2">
+                      <div key={item.school} className="space-y-2 text-center">
                         <p className="font-medium">{item.school}</p>
                         <p className="text-muted-foreground">{item.credential}</p>
                         <p className="text-sm text-muted-foreground">{item.period}</p>
-                        <DocButton href={item.href ?? ""} label="View education certificate" />
+                        <div className="flex justify-center">
+                          <DocButton href={item.href ?? ""} label="View education certificate" />
+                        </div>
                       </div>
                     ))}
                   </div>
                 </div>
               </Tilt3D>
-              <Tilt3D className="rounded-lg border border-border bg-card p-6" intensity={4}>
-                <div className="layer-3d">
+              <Tilt3D className="rounded-lg border border-border bg-card p-6 text-center" intensity={4}>
+                <div className="layer-3d text-center">
                   <p className="eyebrow mb-4">Certificates</p>
                   <div className="bounded-list h-64 space-y-5">
                     {certificates.map((item) => {
                       const hasCertificateImage = Boolean(item.images?.length || item.image);
 
                       return (
-                        <div key={item.name} className="space-y-2">
+                        <div key={item.name} className="space-y-2 text-center">
                           <p className="font-medium">{item.name}</p>
                           <p className="text-muted-foreground">
                             {item.issuer} · {item.year}
@@ -463,15 +491,17 @@ function Portfolio() {
                             <p className="text-xs text-muted-foreground">Credential ID: {item.credentialId}</p>
                           ) : null}
                           {item.skills?.length ? (
-                            <div className="flex flex-wrap gap-1.5">
+                            <div className="flex flex-wrap justify-center gap-1.5">
                               {item.skills.map((skill) => <ToolBadge key={skill} label={skill} />)}
                             </div>
                           ) : null}
-                          <DocButton
-                            href={hasCertificateImage ? `/certificates/${item.slug}` : ""}
-                            label="View certificate"
-                            disabled={!hasCertificateImage}
-                          />
+                          <div className="flex justify-center">
+                            <DocButton
+                              href={hasCertificateImage ? `/certificates/${item.slug}` : ""}
+                              label="View certificate"
+                              disabled={!hasCertificateImage}
+                            />
+                          </div>
                         </div>
                       );
                     })}
@@ -500,8 +530,8 @@ function Portfolio() {
           ) : null}
 
           <Section id="contact" label="Contact" title="Get in touch">
-            <Tilt3D className="w-full max-w-2xl rounded-lg border border-border bg-card p-4 md:p-6" intensity={4}>
-              <ul className="layer-3d space-y-3 text-lg">
+            <Tilt3D className="w-full max-w-2xl rounded-lg border border-border bg-card p-4 text-center md:p-6" intensity={4}>
+              <ul className="layer-3d space-y-3 text-center text-lg">
                 {profile.links.email ? (
                   <li>
                     <a
@@ -570,18 +600,20 @@ function Portfolio() {
             </Tilt3D>
           </Section>
 
-          <Section id="message" label="Message me" title="Send me an email">
-            <Tilt3D
-              className="w-full max-w-xl rounded-lg border border-border bg-card p-4 md:p-6"
-              intensity={3}
-            >
-              <p className="layer-3d mb-6 max-w-xl text-muted-foreground">
-                Fill in the form and your message reaches me directly · no third-party inbox in
-                between.
-              </p>
-              <ContactForm />
-            </Tilt3D>
-          </Section>
+          {messageOpen ? (
+            <Section id="message" label="Message me" title="Send me an email">
+              <Tilt3D
+                className="w-full max-w-xl rounded-lg border border-border bg-card p-4 md:p-6"
+                intensity={3}
+              >
+                <p className="layer-3d mb-6 max-w-xl text-muted-foreground">
+                  Fill in the form and your message reaches me directly · no third-party inbox in
+                  between.
+                </p>
+                <ContactForm />
+              </Tilt3D>
+            </Section>
+          ) : null}
         </main>
 
         <footer className="mx-auto w-full max-w-4xl border-t border-border py-4 text-center text-[10px] leading-4 text-muted-foreground sm:py-6 sm:text-xs sm:leading-5">
