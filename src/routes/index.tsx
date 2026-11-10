@@ -269,7 +269,12 @@ function Portfolio() {
                   <p className="mt-2 max-w-xl text-[11px] leading-snug text-muted-foreground sm:mt-4 sm:text-lg md:mt-6 md:text-xl">
                     {profile.headline}
                   </p>
-                  <div className="hero-actions mt-3 flex flex-wrap items-center gap-1.5 sm:mt-8 sm:gap-3">
+                </div>
+                <div className="hero-robot-shell mt-2 min-w-0 sm:mt-0">
+                  <div className="hero-robot-card">
+                    <HeroRobot3D />
+                  </div>
+                  <div className="hero-actions mt-3 flex flex-wrap items-center justify-end gap-1.5 sm:gap-3">
                     <a
                       href={profile.links.linkedin}
                       target="_blank"
@@ -294,9 +299,6 @@ function Portfolio() {
                       See selected work
                     </a>
                   </div>
-                </div>
-                <div className="hero-robot mt-2 min-w-0 sm:mt-0">
-                  <HeroRobot3D />
                 </div>
               </div>
             </div>
