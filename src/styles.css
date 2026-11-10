@@ -269,8 +269,9 @@
 .hero-actions > * {
   flex: 1 1 0;
   min-width: 0;
-  min-height: 2.2rem;
-  padding-block: 0.45rem;
+  min-height: 2.1rem;
+  padding-block: 0.4rem;
+  font-size: 0.62rem;
 }
 
 @media (max-width: 639px) {
@@ -305,16 +306,22 @@
     line-height: 1.2;
     white-space: normal;
   }
-}
 
-@media (max-width: 380px) {
   .hero-actions {
     gap: 0.2rem;
   }
 
   .hero-actions > * {
+    min-height: 1.8rem;
+    padding-block: 0.3rem;
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-actions > * {
     max-width: 100%;
-    font-size: 7px;
+    font-size: 0.48rem;
   }
 }
 
@@ -936,10 +943,12 @@
   padding: 0;
   color: var(--muted-foreground);
   backdrop-filter: blur(10px);
+  flex: 0 0 auto;
+  overflow: visible;
 }
 
 .navbar-search-open {
-  width: min(10rem, 28vw);
+  width: min(12rem, calc(100vw - 11rem));
   justify-content: flex-start;
   padding: 0 0.6rem;
 }
@@ -1034,7 +1043,7 @@
   right: 0;
   top: calc(100% + 0.5rem);
   z-index: 60;
-  width: min(18rem, 80vw);
+  width: min(16rem, calc(100vw - 5rem));
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -1084,6 +1093,37 @@ section#message {
   padding: 1.25rem 1rem;
 }
 
+.skill-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.skill-card-ornament {
+  position: absolute;
+  top: 18%;
+  bottom: 18%;
+  width: 20%;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklch, var(--border) 90%, transparent);
+  background: radial-gradient(circle at center, color-mix(in oklch, var(--secondary) 80%, transparent), transparent 70%);
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.skill-card-ornament-left {
+  left: -6%;
+}
+
+.skill-card-ornament-right {
+  right: -6%;
+}
+
+.skill-card-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
 .skill-list {
   scroll-snap-type: y proximity;
 }
@@ -1118,7 +1158,7 @@ section#message {
   }
 
   .navbar-search-open {
-    width: min(10rem, 42vw);
+    width: min(11rem, calc(100vw - 9rem));
   }
 
   .navbar-menu {

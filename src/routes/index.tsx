@@ -433,10 +433,12 @@ function Portfolio() {
               {skillGroups.map((group) => (
                 <Tilt3D
                   key={group.label}
-                  className="skill-card flex h-[15rem] flex-col items-center rounded-lg border border-border bg-card p-4 text-center"
+                  className="skill-card relative flex h-[15rem] flex-col items-center overflow-hidden rounded-lg border border-border bg-card p-4 text-center"
                   intensity={6}
                 >
-                  <div className="layer-3d flex min-h-0 flex-1 flex-col items-center text-center">
+                  <div className="skill-card-ornament skill-card-ornament-left" aria-hidden="true" />
+                  <div className="skill-card-ornament skill-card-ornament-right" aria-hidden="true" />
+                  <div className="skill-card-content layer-3d flex min-h-0 flex-1 flex-col items-center text-center">
                     <p className="eyebrow mb-3">{group.label}</p>
                     <ul className="skill-list bounded-list flex h-[10rem] w-full flex-col items-center gap-1.5 text-center text-muted-foreground">
                       {group.items.map((item, i) => (
@@ -453,7 +455,6 @@ function Portfolio() {
                         </li>
                       ))}
                     </ul>
-
                   </div>
                 </Tilt3D>
               ))}
