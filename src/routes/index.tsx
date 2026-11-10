@@ -402,19 +402,19 @@ function Portfolio() {
               {skillGroups.map((group) => (
                 <Tilt3D
                   key={group.label}
-                  className="skill-card flex h-[15rem] flex-col rounded-lg border border-border bg-card p-4"
+                  className="skill-card flex h-[15rem] flex-col items-center rounded-lg border border-border bg-card p-4 text-center"
                   intensity={6}
                 >
-                  <div className="layer-3d flex min-h-0 flex-1 flex-col">
+                  <div className="layer-3d flex min-h-0 flex-1 flex-col items-center text-center">
                     <p className="eyebrow mb-3">{group.label}</p>
-                    <ul className="skill-list bounded-list h-[10rem] space-y-1.5 text-muted-foreground">
+                    <ul className="skill-list bounded-list flex h-[10rem] w-full flex-col items-center gap-1.5 text-center text-muted-foreground">
                       {group.items.map((item, i) => (
-                        <li key={`${item.label}-${i}`}>
+                        <li key={`${item.label}-${i}`} className="flex w-full justify-center">
                           <a
                             href={item.href}
                             target="_blank"
                             rel="noreferrer"
-                            className="border-b border-transparent transition-colors hover:border-accent hover:text-accent"
+                            className="inline-flex items-center justify-center border-b border-transparent transition-colors hover:border-accent hover:text-accent"
                           >
                             <ToolBadge label={item.label} iconUrl={item.iconUrl} />
                             <span className="sr-only"> (opens in a new tab)</span>
@@ -536,7 +536,7 @@ function Portfolio() {
                   </li>
                 ) : null}
               </ul>
-              <ul className="layer-3d mt-6 flex flex-wrap gap-3">
+              <ul className="layer-3d mt-6 flex flex-wrap justify-center gap-3">
                 {socials.map((social) => {
                   const Icon = SOCIAL_ICONS[social.label] ?? Link2;
                   return (

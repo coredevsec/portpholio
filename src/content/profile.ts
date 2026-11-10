@@ -5,7 +5,7 @@
 export const profile = {
   name: "Korede Ogundana",
   headline:
-    "Product Engineer · Built Orator - AI speech coach · TypeScript, Next.js, Flutterwave · IT Support · Java · Python · Linux & Networking · Aspiring Software Engineer",
+    "Product Engineer · Built Orator · AI speech coach · TypeScript, Next.js, Flutterwave · IT Support · Java · Python · Linux & Networking · Aspiring Software Engineer",
   location: "Lagos State, Nigeria",
   about:
     "I’m a Product Engineer building AI-powered tools that solve real problems and deliver practical value. I recently built Orator, a public-speaking practice platform that listens as you read and follows your speech in real time. With a background in IT support, Linux, networking, and troubleshooting, I’m a hardworking fast learner who takes ownership and ships thoughtful, useful products. I’m open to remote internships in product engineering, AI, and full-stack development, and eager to contribute and grow with a team.",
