@@ -277,9 +277,6 @@ function Portfolio() {
                 </div>
                 <HeroRobot3D />
               </div>
-              <div className="hero-card-ornaments" aria-hidden="true">
-                <span />
-              </div>
             </div>
 
             <div className="hero-actions mt-3 flex w-full items-center justify-center gap-1.5 sm:gap-2">

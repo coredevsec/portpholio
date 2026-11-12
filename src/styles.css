@@ -564,24 +564,6 @@
   display: block;
 }
 
-.hero-card-ornaments {
-  position: absolute;
-  left: 1rem;
-  bottom: 0.8rem;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.hero-card-ornaments span {
-  display: block;
-  width: 6rem;
-  height: 2.4rem;
-  border: 1px solid color-mix(in oklch, var(--border) 90%, transparent);
-  border-radius: 999px;
-  background: radial-gradient(circle at center, color-mix(in oklch, var(--secondary) 80%, transparent), transparent 70%);
-  opacity: 0.8;
-}
-
 .hero-name {
   display: inline-block;
   color: var(--foreground);
