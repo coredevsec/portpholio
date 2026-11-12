@@ -117,11 +117,13 @@ function DocButton({
   label,
   icon: Icon = FileText,
   disabled = false,
+  showIcon = true,
 }: {
   href: string;
   label: string;
   icon?: typeof FileText;
   disabled?: boolean;
+  showIcon?: boolean;
 }) {
   const isDisabled = disabled || !href;
 
@@ -133,7 +135,7 @@ function DocButton({
         title={disabled ? "Add the certificate image in profile.ts to enable this button." : "Upload the file and set its path in profile.ts to enable"}
         className="inline-flex items-center gap-2 rounded-sm border border-border px-3 py-1.5 text-sm text-muted-foreground opacity-60"
       >
-        <Icon size={15} aria-hidden="true" />
+        {showIcon ? <Icon size={15} aria-hidden="true" /> : null}
         {label}
       </button>
     );
@@ -149,7 +151,7 @@ function DocButton({
         rel="noreferrer"
         className="inline-flex items-center gap-2 rounded-sm border border-accent px-3 py-1.5 text-sm text-accent transition-opacity hover:opacity-75"
       >
-        <Icon size={15} aria-hidden="true" />
+        {showIcon ? <Icon size={15} aria-hidden="true" /> : null}
         {label}
         <span className="sr-only"> (opens in a new tab)</span>
       </a>
@@ -161,7 +163,7 @@ function DocButton({
       href={href}
       className="inline-flex items-center gap-2 rounded-sm border border-accent px-3 py-1.5 text-sm text-accent transition-opacity hover:opacity-75"
     >
-      <Icon size={15} aria-hidden="true" />
+      {showIcon ? <Icon size={15} aria-hidden="true" /> : null}
       {label}
     </a>
   );
@@ -252,8 +254,8 @@ function Portfolio() {
       <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-4 sm:px-6 md:px-10">
         <main id="main" className="pt-24">
           <div className="scene-3d py-10 sm:py-14 md:py-24">
-            <div className="card-3d overflow-hidden rounded-lg border border-border bg-card p-4 sm:p-7 md:p-12">
-              <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-2 sm:gap-4 md:grid-cols-[1.1fr_1fr] md:gap-10">
+            <div className="card-3d hero-card relative overflow-hidden rounded-lg border border-border bg-card p-4 sm:p-7 md:p-12">
+              <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_8rem] items-start gap-2 sm:gap-4 md:grid-cols-[1.1fr_1fr] md:gap-10">
                 <div className="layer-3d min-w-0">
                   <div className="hero-location-window">
                     <p className="hero-location eyebrow text-[8px] sm:text-[11px]">
@@ -261,46 +263,47 @@ function Portfolio() {
                     </p>
                   </div>
                   <HeroClock />
-                  <div className="hero-name-window hero-name-after-clock mt-2 sm:mt-4">
+                  <div className="hero-name-window hero-name-after-clock mt-6 sm:mt-4">
                     <h1 className="hero-name block whitespace-nowrap text-2xl leading-[1.2] sm:text-5xl md:text-4xl">
                       {profile.name}
                     </h1>
                   </div>
-                  <p className="mt-2 max-w-xl text-[11px] leading-snug text-muted-foreground sm:mt-4 sm:text-lg md:mt-6 md:text-xl">
-                    {profile.headline}
+                  <p className="hero-headline mt-1 text-[10px] leading-snug text-muted-foreground sm:text-sm md:mt-2 md:text-base">
+                    <span>Product Engineer&nbsp;·&nbsp;Built Orator&nbsp;·&nbsp;AI speech</span>
+                    <span>coach&nbsp;·&nbsp;TypeScript, Next.js, Flutterwave&nbsp;·&nbsp;IT</span>
+                    <span>Support&nbsp;·&nbsp;Java&nbsp;·&nbsp;Python&nbsp;·&nbsp;Linux &amp;</span>
+                    <span>Networking&nbsp;·&nbsp;Aspiring Software Engineer</span>
                   </p>
                 </div>
-                <div className="hero-robot-shell mt-2 min-w-0 sm:mt-0">
-                  <div className="hero-robot-card">
-                    <HeroRobot3D />
-                  </div>
-                </div>
+                <HeroRobot3D />
+              </div>
+              <div className="hero-card-ornaments" aria-hidden="true">
+                <span />
               </div>
             </div>
 
-            <div className="hero-actions mt-3 flex w-full items-center justify-between gap-1.5 sm:gap-2">
+            <div className="hero-actions mt-3 flex w-full items-center justify-center gap-1.5 sm:gap-2">
               <a
                 href={profile.links.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex flex-1 items-center justify-center rounded-sm bg-primary px-2 py-1.5 text-[7px] leading-none text-primary-foreground transition-opacity hover:opacity-90 sm:px-3 sm:py-2 sm:text-[10px]"
+                className="hero-action-button inline-flex items-center justify-center rounded-sm bg-primary px-2 py-1.5 text-[7px] leading-none text-primary-foreground transition-opacity hover:opacity-90 sm:px-3 sm:py-2 sm:text-[10px]"
               >
                 LinkedIn profile
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
               <a
                 href="#credentials"
-                className="inline-flex flex-1 items-center justify-center gap-1 rounded-sm border border-border px-2 py-1.5 text-[7px] leading-none transition-colors hover:border-accent hover:text-accent sm:gap-1.5 sm:px-3 sm:py-2 sm:text-[10px]"
+                className="hero-action-button inline-flex items-center justify-center gap-1 rounded-sm border border-border px-2 py-1.5 text-[7px] leading-none transition-colors hover:border-accent hover:text-accent sm:gap-1.5 sm:px-3 sm:py-2 sm:text-[10px]"
               >
-                <FileText size={15} aria-hidden="true" />
                 View certificates
               </a>
-              <div className="flex-1">
-                <DocButton href={documents.cv} label="Download CV" icon={Download} />
+              <div className="hero-cv-wrap">
+                <DocButton href={documents.cv} label="Download CV" icon={Download} showIcon={false} />
               </div>
               <a
                 href="#work"
-                className="inline-flex flex-1 items-center justify-center border-b border-accent pb-0.5 text-[7px] leading-none text-accent transition-opacity hover:opacity-70 sm:pb-1 sm:text-[10px]"
+                className="hero-action-button inline-flex items-center justify-center border-b border-accent pb-0.5 text-[7px] leading-none text-accent transition-opacity hover:opacity-70 sm:pb-1 sm:text-[10px]"
               >
                 See selected work
               </a>
@@ -463,8 +466,10 @@ function Portfolio() {
 
           <Section id="credentials" label="Credentials" title="Education & certifications">
             <div className="grid gap-6 sm:grid-cols-2">
-              <Tilt3D className="rounded-lg border border-border bg-card p-6 text-center" intensity={4}>
-                <div className="layer-3d text-center">
+              <Tilt3D className="skill-card relative isolate overflow-hidden rounded-lg border border-border bg-card p-6 text-center" intensity={4}>
+                <div className="skill-card-ornament skill-card-ornament-left" aria-hidden="true" />
+                <div className="skill-card-ornament skill-card-ornament-right" aria-hidden="true" />
+                <div className="skill-card-content layer-3d text-center">
                   <p className="eyebrow mb-4">Education</p>
                   <div className="bounded-list h-64 space-y-5">
                     {education.map((item) => (
@@ -480,8 +485,10 @@ function Portfolio() {
                   </div>
                 </div>
               </Tilt3D>
-              <Tilt3D className="rounded-lg border border-border bg-card p-6 text-center" intensity={4}>
-                <div className="layer-3d text-center">
+              <Tilt3D className="skill-card relative isolate overflow-hidden rounded-lg border border-border bg-card p-6 text-center" intensity={4}>
+                <div className="skill-card-ornament skill-card-ornament-left" aria-hidden="true" />
+                <div className="skill-card-ornament skill-card-ornament-right" aria-hidden="true" />
+                <div className="skill-card-content layer-3d text-center">
                   <p className="eyebrow mb-4">Certificates</p>
                   <div className="bounded-list h-64 space-y-5">
                     {certificates.map((item) => {
@@ -536,8 +543,11 @@ function Portfolio() {
           ) : null}
 
           <Section id="contact" label="Contact" title="Get in touch">
-            <Tilt3D className="w-full max-w-2xl rounded-lg border border-border bg-card p-4 text-center md:p-6" intensity={4}>
-              <ul className="layer-3d space-y-3 text-center text-lg">
+            <Tilt3D className="skill-card relative isolate w-full max-w-2xl overflow-hidden rounded-lg border border-border bg-card p-4 text-center md:p-6" intensity={4}>
+              <div className="skill-card-ornament skill-card-ornament-left" aria-hidden="true" />
+              <div className="skill-card-ornament skill-card-ornament-right" aria-hidden="true" />
+              <div className="skill-card-content layer-3d">
+              <ul className="space-y-3 text-center text-lg">
                 {profile.links.email ? (
                   <li>
                     <a
@@ -572,7 +582,7 @@ function Portfolio() {
                   </li>
                 ) : null}
               </ul>
-              <ul className="layer-3d mt-6 flex flex-wrap justify-center gap-3">
+              <ul className="mt-6 flex flex-wrap justify-center gap-3">
                 {socials.map((social) => {
                   const Icon = SOCIAL_ICONS[social.label] ?? Link2;
                   return (
@@ -602,7 +612,7 @@ function Portfolio() {
                   );
                 })}
               </ul>
-
+              </div>
             </Tilt3D>
           </Section>
 

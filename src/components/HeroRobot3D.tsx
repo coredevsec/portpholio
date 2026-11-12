@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Power } from "lucide-react";
 
 /**
  * Interactive CSS-3D humanoid robot terminal.
@@ -25,21 +26,24 @@ export function HeroRobot3D() {
   const lastPointerRef = useRef({ x: 0, y: 0 });
   const [rot, setRot] = useState({ x: -6, y: -18 });
   const [step, setStep] = useState(0);
-  const [scale, setScale] = useState(1);
+  const [scale, setScale] = useState(0.54);
+  const [awake, setAwake] = useState(false);
 
   useEffect(() => {
+    if (!awake) return;
+
     const updateScale = () => {
       if (window.innerWidth < 380) setScale(0.54);
-      else if (window.innerWidth < 640) setScale(0.64);
-      else if (window.innerWidth < 768) setScale(0.74);
-      else setScale(0.84);
+      else if (window.innerWidth < 640) setScale(0.56);
+      else setScale(0.58);
     };
     updateScale();
     window.addEventListener("resize", updateScale);
     return () => window.removeEventListener("resize", updateScale);
-  }, []);
+  }, [awake]);
 
   useEffect(() => {
+    if (!awake) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const idleRotation = window.setInterval(() => {
       if (draggingRef.current) return;
@@ -47,7 +51,7 @@ export function HeroRobot3D() {
     }, 40);
 
     return () => window.clearInterval(idleRotation);
-  }, []);
+  }, [awake]);
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     draggingRef.current = true;
@@ -91,71 +95,106 @@ export function HeroRobot3D() {
   const readout = READOUTS[step % READOUTS.length]!;
 
   return (
-    <div
-      ref={sceneRef}
-      onPointerLeave={() => {
-        if (!draggingRef.current) setRot({ x: -6, y: -18 });
-      }}
-      className="robot-scene select-none"
-    >
-      <div
-        className="robot-rig"
-        onPointerDown={handlePointerDown}
-        onPointerMove={handleMove}
-        onPointerUp={stopDragging}
-        onPointerCancel={stopDragging}
-        onKeyDown={(event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            advanceReadout();
-          }
-        }}
-        role="button"
-        tabIndex={0}
-        aria-label="Cycle the robot terminal readout"
-        style={{ transform: `scale(${scale}) rotateX(${rot.x}deg) rotateY(${rot.y}deg)` }}
-      >
-        <div className="robot-head" aria-hidden="true">
-          <span className="robot-face">
-            <span className="robot-eye" />
-            <span className="robot-eye" />
-          </span>
-          <span className="robot-mouth" aria-hidden="true" />
-          <span className="robot-antenna" aria-hidden="true" />
-        </div>
+    <div className={`hero-robot-shell ${awake ? "is-awake" : ""} mt-2 min-w-0 sm:mt-0`}>
+      <div className="hero-robot-card">
+        <div className={`hero-power-display ${awake ? "is-awake" : ""}`}>
+          <div className={`hero-robot-stage ${awake ? "is-awake" : ""}`}>
+            {!awake ? (
+              <div className="sleeping-computer" aria-live="polite" aria-label="Computer sleeping">
+                <div className="sleeping-computer-screen">
+                  <div className="sleeping-computer-bezel">
+                    <span>STANDBY</span>
+                    <i aria-hidden="true" />
+                  </div>
+                  <div className="sleeping-terminal" aria-hidden="true">
+                    <span className="sleeping-terminal-cursor" />
+                    <span className="sleeping-terminal-status">SLEEP MODE</span>
+                    <span className="sleeping-terminal-line" />
+                    <span className="sleeping-terminal-line short" />
+                  </div>
+                </div>
+                <div className="sleeping-computer-base" aria-hidden="true" />
+              </div>
+            ) : (
+              <div
+                ref={sceneRef}
+                onPointerLeave={() => {
+                  if (!draggingRef.current) setRot({ x: -6, y: -18 });
+                }}
+                className="robot-scene select-none"
+              >
+                <div
+                  className="robot-rig"
+                  onPointerDown={handlePointerDown}
+                  onPointerMove={handleMove}
+                  onPointerUp={stopDragging}
+                  onPointerCancel={stopDragging}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      advanceReadout();
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  aria-label="Cycle the robot terminal readout"
+                  style={{ transform: `scale(${scale}) rotateX(${rot.x}deg) rotateY(${rot.y}deg)` }}
+                >
+                  <div className="robot-head" aria-hidden="true">
+                    <span className="robot-face">
+                      <span className="robot-eye" />
+                      <span className="robot-eye" />
+                    </span>
+                    <span className="robot-mouth" aria-hidden="true" />
+                    <span className="robot-antenna" aria-hidden="true" />
+                  </div>
 
-        <div className="robot-ear robot-ear-left" aria-hidden="true" />
-        <div className="robot-ear robot-ear-right" aria-hidden="true" />
-        <div className="robot-neck" aria-hidden="true" />
+                  <div className="robot-ear robot-ear-left" aria-hidden="true" />
+                  <div className="robot-ear robot-ear-right" aria-hidden="true" />
+                  <div className="robot-neck" aria-hidden="true" />
 
-        <div className="robot-body" aria-hidden="true">
-          <div className="robot-screen" role="status" aria-live="polite">
-            <span className="robot-line text-accent">{readout[0]}</span>
-            <span className="robot-line">{readout[1]}</span>
-            <span className="robot-bar" aria-hidden="true" />
+                  <div className="robot-body" aria-hidden="true">
+                    <div className="robot-screen" role="status" aria-live="polite">
+                      <span className="robot-line text-accent">{readout[0]}</span>
+                      <span className="robot-line">{readout[1]}</span>
+                      <span className="robot-bar" aria-hidden="true" />
+                    </div>
+                  </div>
+
+                  <div className="robot-arm robot-arm-left" aria-hidden="true">
+                    <span className="robot-hand" />
+                  </div>
+                  <div className="robot-arm robot-arm-right" aria-hidden="true">
+                    <span className="robot-hand" />
+                  </div>
+
+                  <div className="robot-hip" aria-hidden="true" />
+                  <div className="robot-leg robot-leg-left" aria-hidden="true">
+                    <span className="robot-foot" />
+                  </div>
+                  <div className="robot-leg robot-leg-right" aria-hidden="true">
+                    <span className="robot-foot" />
+                  </div>
+
+                  <div className="robot-shadow" aria-hidden="true" />
+                </div>
+                <p className="mt-4 text-center text-xs text-muted-foreground">
+                  Tap to run a command
+                </p>
+              </div>
+            )}
           </div>
+          <button
+            type="button"
+            className={`hero-power-button ${awake ? "is-on" : ""}`}
+            aria-label={awake ? "Turn robot off" : "Turn robot on"}
+            aria-pressed={awake}
+            onClick={() => setAwake((value) => !value)}
+          >
+            <Power size={13} aria-hidden="true" />
+          </button>
         </div>
-
-        <div className="robot-arm robot-arm-left" aria-hidden="true">
-          <span className="robot-hand" />
-        </div>
-        <div className="robot-arm robot-arm-right" aria-hidden="true">
-          <span className="robot-hand" />
-        </div>
-
-        <div className="robot-hip" aria-hidden="true" />
-        <div className="robot-leg robot-leg-left" aria-hidden="true">
-          <span className="robot-foot" />
-        </div>
-        <div className="robot-leg robot-leg-right" aria-hidden="true">
-          <span className="robot-foot" />
-        </div>
-
-        <div className="robot-shadow" aria-hidden="true" />
       </div>
-      <p className="mt-4 text-center text-xs text-muted-foreground">
-        Drag to rotate · tap to run a command
-      </p>
     </div>
   );
 }
