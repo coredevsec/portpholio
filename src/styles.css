@@ -253,7 +253,7 @@
 
 .hero-robot-card {
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid color-mix(in oklch, var(--border) 85%, transparent);
   border-radius: var(--radius);
   background: linear-gradient(180deg, color-mix(in oklch, var(--card) 96%, transparent), color-mix(in oklch, var(--secondary) 90%, transparent));
@@ -316,7 +316,7 @@
   min-height: 15.75rem;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero-power-display .robot-rig {
@@ -340,7 +340,7 @@
   border-radius: 0.55rem 0.55rem 0.35rem 0.35rem;
   border: 1px solid color-mix(in oklch, var(--foreground) 16%, var(--border));
   background: linear-gradient(145deg, color-mix(in oklch, var(--foreground) 12%, var(--secondary)), color-mix(in oklch, var(--card) 96%, transparent) 55%);
-  overflow: hidden;
+  overflow: visible;
   box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--foreground) 4%, transparent), 0 0.45rem 1rem -0.75rem oklch(0 0 0 / 0.7);
 }
 
@@ -471,6 +471,14 @@
 }
 
 @media (max-width: 639px) {
+  .hero-headline-desktop {
+    display: none;
+  }
+
+  .hero-card .hero-headline-mobile {
+    display: block;
+  }
+
   .hero-robot-shell {
     width: 8rem;
     min-width: 8rem;
@@ -562,6 +570,34 @@
 
 .hero-headline span {
   display: block;
+}
+
+.hero-headline-mobile {
+  display: none;
+}
+
+.hero-card-ornament {
+  position: absolute;
+  left: 0.65rem;
+  bottom: 0.45rem;
+  z-index: 0;
+  width: min(38%, 9rem);
+  height: 1.2rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-card-ornament span {
+  position: absolute;
+  left: 0;
+  bottom: -0.8rem;
+  width: 100%;
+  height: 1.6rem;
+  border: 1px solid color-mix(in oklch, var(--border) 90%, transparent);
+  border-radius: 999px;
+  background: radial-gradient(circle at center, color-mix(in oklch, var(--secondary) 80%, transparent), transparent 70%);
+  opacity: 1;
+  background: radial-gradient(circle at center, color-mix(in oklch, var(--secondary) 100%, transparent), transparent 70%);
 }
 
 .hero-name {

@@ -268,7 +268,7 @@ function Portfolio() {
                       {profile.name}
                     </h1>
                   </div>
-                  <p className="hero-headline mt-1 text-[10px] leading-snug text-muted-foreground sm:text-sm md:mt-2 md:text-base">
+                  <p className="hero-headline hero-headline-desktop mt-1 text-[10px] leading-snug text-muted-foreground sm:text-sm md:mt-2 md:text-base">
                     <span>Product Engineer&nbsp;·&nbsp;Built Orator&nbsp;·&nbsp;AI speech</span>
                     <span>coach&nbsp;·&nbsp;TypeScript, Next.js, Flutterwave&nbsp;·&nbsp;IT</span>
                     <span>Support&nbsp;·&nbsp;Java&nbsp;·&nbsp;Python&nbsp;·&nbsp;Linux &amp;</span>
@@ -276,6 +276,16 @@ function Portfolio() {
                   </p>
                 </div>
                 <HeroRobot3D />
+              </div>
+              <p className="hero-headline hero-headline-mobile mt-2 text-[10px] leading-snug text-muted-foreground">
+                <span>Product Engineer · Built Orator</span>
+                <span>AI speech coach · TypeScript</span>
+                <span>Next.js · Flutterwave · IT Support</span>
+                <span>Java · Python · Linux &amp; Networking</span>
+                <span>Aspiring Software Engineer</span>
+              </p>
+              <div className="hero-card-ornament" aria-hidden="true">
+                <span />
               </div>
             </div>
 
