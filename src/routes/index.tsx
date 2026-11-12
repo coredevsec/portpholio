@@ -274,16 +274,18 @@ function Portfolio() {
                     <span>Support&nbsp;·&nbsp;Java&nbsp;·&nbsp;Python&nbsp;·&nbsp;Linux &amp;</span>
                     <span>Networking&nbsp;·&nbsp;Aspiring Software Engineer</span>
                   </p>
+                  <p className="hero-headline hero-headline-mobile mt-1 text-[10px] leading-snug text-muted-foreground">
+                    <span>Product Engineer · Built</span>
+                    <span>Orator · AI speech coach</span>
+                    <span>TypeScript · Next.js</span>
+                    <span>Flutterwave · IT Support</span>
+                    <span>Java · Python · Linux</span>
+                    <span>&amp; Networking</span>
+                    <span>Aspiring Software Engineer</span>
+                  </p>
                 </div>
                 <HeroRobot3D />
               </div>
-              <p className="hero-headline hero-headline-mobile mt-2 text-[10px] leading-snug text-muted-foreground">
-                <span>Product Engineer · Built Orator</span>
-                <span>AI speech coach · TypeScript</span>
-                <span>Next.js · Flutterwave · IT Support</span>
-                <span>Java · Python · Linux &amp; Networking</span>
-                <span>Aspiring Software Engineer</span>
-              </p>
               <div className="hero-card-ornament" aria-hidden="true">
                 <span />
               </div>
