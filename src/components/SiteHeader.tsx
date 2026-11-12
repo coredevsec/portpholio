@@ -21,6 +21,7 @@ export function SiteHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const headerRef = useRef<HTMLElement | null>(null);
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
   const searchItems = [
     ...projects.map((project) => ({ label: project.name, type: "Project", href: "/#work" })),
     ...products.map((product) => ({ label: product.name, type: "Product", href: "/#marketplace" })),
@@ -60,6 +61,11 @@ export function SiteHeader() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!searchOpen || window.innerWidth <= 640) return;
+    searchInputRef.current?.focus();
+  }, [searchOpen]);
+
   return (
     <header
       ref={headerRef}
@@ -97,7 +103,7 @@ export function SiteHeader() {
             </button>
             {searchOpen ? (
               <input
-                autoFocus
+                ref={searchInputRef}
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
                 placeholder="Search"
