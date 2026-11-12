@@ -195,6 +195,7 @@
   --input: oklch(0.878 0.016 84);
   --ring: oklch(0.53 0.145 42);
   --robot-screen-background: oklch(0.16 0.02 265);
+  --capsule-highlight: oklch(0.215 0.021 62 / 18%);
 }
 
 /* Night mode: deep slate paper, warm amber accent */
@@ -220,6 +221,7 @@
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.78 0.14 62);
   --robot-screen-background: oklch(0.16 0.02 265);
+  --capsule-highlight: oklch(1 0 0 / 25%);
 }
 
 @layer base {
@@ -1373,6 +1375,19 @@ section#message {
   background: radial-gradient(circle at center, color-mix(in oklch, var(--secondary) 80%, transparent), transparent 70%);
   opacity: 0.8;
   z-index: 0;
+}
+
+.skill-card-ornament::after,
+.hero-card-ornament span::after {
+  content: "";
+  position: absolute;
+  top: 0.28rem;
+  left: 24%;
+  right: 24%;
+  height: 1px;
+  border-radius: 999px;
+  background: var(--capsule-highlight);
+  pointer-events: none;
 }
 
 .skill-card-ornament-left {
